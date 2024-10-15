@@ -9,7 +9,7 @@
     <form action="" method="post">
         <input type="text" name="desde" placeholder="desde">
         <input type="text" name="hasta" placeholder="hasta">
-        <input type="text" name="num" placeholder="num">
+        <input type="text" name="num"  placeholder="num">
 
 
     </form>

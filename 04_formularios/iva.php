@@ -3,52 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CALCULAR EL IVA </title>
-    //ACTIVAR EL ERROR
+    <title>Calculadora de IVA</title>
+
     <?php
-//DECLARAR CONSTANTES
-    define("GENERAL",1.21);
-    define("REDUCIDO",1.1);
-    define("SUPERREDUCIDO",1.04);
+    error_reporting( E_ALL );
+    ini_set( "display_errors", 1 );
+     ?>
 
-
-    ?>
+    
+     <?php
+     //variables constantes
+      define("GENERAL", 1.21);
+      define("REDUCIDO", 1.1);
+      define("SUPERREDUCIDO", 1.04);
+     ?>
+    
 </head>
 <body>
-              
+<!--SUPEREDUCIDO 4%
+    REDUCIDO 10%
+    NORMAL 21%-->
 
-<form action=""   method="post">             <!--action"" ,recarga la pag       -->
-    
-    <label for="precio>precio </label>           <!--label etiqueta     -->
-    <imput type="number" name ="precio" id="precio"> <br><br>   
-    <label for="iva"> iva </label>             <!--for te linkea la pag,lo que sea te manda a la pag    -->
-    <select name="iva" id="iva" >
-        <option value="general">general</option>
-        <option value="reducido">reducido</option>
-        <option value="superreducido">superreducido</option>    <!--boton enviar      -->
+
+
+<form action="" method="post">
+    <label for="precio">Precio</label>
+    <input type="number" name="precio" id="precio"><br><br>
+    <label for="iva">IVA</label>
+
+
+<select name="iva" id="iva">
+    <option value="general">General</option>
+    <option value="reducido">Reducido</option>
+    <option value="superreducido">Superreducido</option>
 </select><br><br>
-<imput type="submit" value="calcular pvp">
+<input type="submit" value="Calcular PVP">
 </form>
 
-<?php
-if ($__SERVER) ["REQUEST__METHOD"]=="POST"{
-    $precio =$_POST["precio"];
-    $iva = = $_POST["precio"];
+    <?php
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $precio = $_POST["precio"];
+            $iva = $_POST["iva"]; 
 
-    $pvp=match ($iva){
-        "general"=> $precio * GENERAL, //ESTA MULTIPLICANDO POR EL 1,21 IVA 
-        "reducido"=> $precio * REDUCIDO,
-        "superreducido"=> $precio * SUPERREDUCIDO,
-    };
- echo "el pvp es $pvp";
+
+
+            $pvp = match ($iva) {
+                 "general" => $precio * GENERAL,
+                 "reducido" => $precio * REDUCIDO,
+                 "superreducido" => $precio * SUPERREDUCIDO,
+            };
+
+            echo "<p> El precio al publico es: $pvp </p>";
+
+        }
+    ?>
     
-}
-
-?>
-
-
-
-
-
 </body>
 </html>
