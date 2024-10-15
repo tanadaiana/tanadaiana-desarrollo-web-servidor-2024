@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <?php
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 );
+    ?>
 </head>
 <body>
     <?php
@@ -55,7 +60,7 @@
     */
 
     #   Forma 2
-    $n = rand(1,10);
+    $n = rand(1,10);//del 1 al 10
     $resto = $n % 2;
 
     $resultado = match($resto) {
