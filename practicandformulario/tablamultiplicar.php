@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<h1>Tablas de Multiplicar del 1 al 10</h1>
+<h1>Tablas de Multiplicar hasta el 10</h1>
 
 <form action="" method="post">
     <input type="submit" value="Mostrar Tablas de Multiplicar">
@@ -28,13 +28,13 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //  1 al 10
+
     for ($i = 1; $i <= 10; $i++) {
-        echo "<h2>Tabla del $i</h2>";
+        echo "<h3>Tabla del $i</h3>";
         echo "<table>";
         echo "<tr><th>Multiplicando</th><th>Resultado</th></tr>";
 
-        // Calcular  número actual
+        
         for ($j = 1; $j <= 10; $j++) {
             $resultado = $i * $j;
             echo "<tr><td>$i x $j</td><td>$resultado</td></tr>";
