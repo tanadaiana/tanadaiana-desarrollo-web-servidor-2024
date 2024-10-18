@@ -7,11 +7,11 @@
 </head>
 <body>
     <?php 
-    $numero_inicio = 0;
-    $factorial = 5;
+    $numero_inicio = 0;//pos
+    $factorial = 5;//post
     $res=1;
     for ($i=$factorial; $i > $numero_inicio; $i--) { 
-        $res *= $i;
+        $res *= $i;//echo
     }
     echo $res;
     ?>

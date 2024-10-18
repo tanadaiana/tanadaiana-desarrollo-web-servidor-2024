@@ -14,12 +14,12 @@
         <label for="cantidad"> conversor de dinero</label>
         <input type="text" name="cantidad" id="cantidad" placeholder="cantidad" >
 
-        <select name="monedaorigen" id="monedaorigen" >   //required??????????????????? es para comprobar q todo los campos son reelenados 
+        <select name="monedaorigen" id="monedaorigen" >   
             <option value="EUR">EURO</option>
             <option value="USD">DOLAR</option>
             <option value="JPY">YEN</option>
         </select>
-        <select name="monedadestino" id="monedadestino" >   //required??????????????????? es para comprobar q todo los campos son reelenados 
+        <select name="monedadestino" id="monedadestino" >  
             <option value="EUR">EURO</option>
             <option value="USD">DOLAR</option>
             <option value="JPY">YEN</option>
@@ -29,7 +29,6 @@
     <?php
     if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $cantidad=$_POST["cantidad"];
-        
         $monedaorigen=$_POST["monedaorigen"];  
         $monedadestino=$_POST["monedadestino"];
         

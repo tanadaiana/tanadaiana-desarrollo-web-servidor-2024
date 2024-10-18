@@ -32,9 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     for ($i = 1; $i <= 10; $i++) {
         echo "<h2>Tabla del $i</h2>";
         echo "<table>";
-        echo "<tr><th>Multiplicando</th><th>Resultado</th></tr>";
-
-        // Calcular  número actual
+        echo "<tr><th>Multiplicando</th><th>Resultado</th></tr>
         for ($j = 1; $j <= 10; $j++) {
             $resultado = $i * $j;
             echo "<tr><td>$i x $j</td><td>$resultado</td></tr>";
