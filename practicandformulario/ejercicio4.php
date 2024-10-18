@@ -22,7 +22,7 @@
         </select>
 
         <label for="temperatura2">Temperatura de destino:</label>
-        <select name="temperatura2" id="temperatura2" required>   //required??????????????????? es para comprobar q todo los campos son reelenados 
+        <select name="temperatura2" id="temperatura2" required>    
             <option value="celsius">Celsius</option>
             <option value="kelvin">Kelvin</option>
             <option value="fahrenheit">Fahrenheit</option>

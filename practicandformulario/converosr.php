@@ -19,7 +19,11 @@
             <option value="USD">DOLAR</option>
             <option value="JPY">YEN</option>
         </select>
+<<<<<<< HEAD
         <select name="monedadestino" id="monedadestino" >  
+=======
+        <select name="monedadestino" id="monedadestino" > 
+>>>>>>> refs/remotes/origin/main
             <option value="EUR">EURO</option>
             <option value="USD">DOLAR</option>
             <option value="JPY">YEN</option>
