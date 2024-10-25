@@ -28,13 +28,8 @@
         ["plastorion 5 pro",800],
         ["vbox serie ", 400],
         ["xbox serie xp  pro",800],
-    ];
-
-
-
-
-
-
+    ]
+    
     
     foreach ($productos as $producto ) {//este for recorre todo el for
         list($juegos,$precio)=$productos;//esto es una lista q te almacena categoria ,precio

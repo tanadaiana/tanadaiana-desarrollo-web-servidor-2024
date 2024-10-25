@@ -19,7 +19,15 @@
             <option value="USD">DOLAR</option>
             <option value="JPY">YEN</option>
         </select>
+<<<<<<< HEAD:tareaalejandra/converosr.php
         <select name="monedadestino" id="monedadestino" > 
+=======
+<<<<<<< HEAD
+        <select name="monedadestino" id="monedadestino" >  
+=======
+        <select name="monedadestino" id="monedadestino" > 
+>>>>>>> refs/remotes/origin/main
+>>>>>>> fec5251176994f5352de6a07b350d2c700f1fb54:practicandformulario/converosr.php
             <option value="EUR">EURO</option>
             <option value="USD">DOLAR</option>
             <option value="JPY">YEN</option>
