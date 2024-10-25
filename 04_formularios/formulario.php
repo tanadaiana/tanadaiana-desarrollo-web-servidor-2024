@@ -17,7 +17,9 @@
          <?php if($__server["REQUEST_METHOD"]=="POST"){
 
             $numero=$_POST["numero"];$candidato=$numero[0];
+
             for ($i=0; $i < count($numero); $i++) { 
+
                 if($numero[$i]>$candidato)$candidato=$numero[$i];
             }
             $maximo=$candidato;
@@ -25,6 +27,7 @@
             if ($numero==$maximo) {
             echo"<h1¡has acertado el maximo es $numero</h1>";
             } else{
+                
                 echo "<h1>¡felicidades el maximo es $numero";
             }
          }

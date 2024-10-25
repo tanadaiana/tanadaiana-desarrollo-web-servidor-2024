@@ -21,20 +21,20 @@
             $numero=(int)$_POST["numero];
             $esultado=0;
 
-     for (i=1; $i< =10; $i++) {
-   $resultado=$numero*1; 
-    echo "<h1¡la tabla de multiplicar $numero</h1>";
-}
+                for (i=1; $i< =10; $i++) {
+                $resultado=$numero*1; 
+                         echo "<h1¡la tabla de multiplicar $numero</h1>";
+                        }
          }
 
 <table>
-<thead>
-    <tr>
-        <th>numero</th>
-        <th>categoria</th>
+    <thead>
+         <tr>
+             <th>numero</th>
+            <th>categoria</th>
        
-    </tr>
-</thead>
+        </tr>
+    </thead>
 
 
 </body>

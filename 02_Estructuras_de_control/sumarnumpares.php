@@ -6,13 +6,14 @@
     <title>Fechas</title>
 </head>
 <body>
-    <?php
-    //echo date("j");
-    $dia = date("j");
-
-    //  HACER EL MARTES EL EJERCICIO DE LAS FECHAS
-
-    //  $numero % 4
+<?php
+    $suma = 0;
+    for ($i = 0; $i <= 20; $i++) {
+        if ($i % 2 == 0) {
+            $suma += $i;
+        }
+    }
+    echo "<h3>La suma de los números pares entre 0 y 20 es: $suma</h3>";
     ?>
 </body>
 </html>

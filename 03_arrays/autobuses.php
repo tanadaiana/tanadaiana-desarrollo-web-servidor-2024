@@ -9,13 +9,11 @@
 <body>
     <h2>Ejemplo de arrays bidimensionales con autobuses</h2>
     <?php
-        $autobuses = [
-            ["Málaga", "Ronda", 90, 10],
-            ["Churriana", "Málaga", 20, 3],
-            ["Málaga", "Granada", 120, 15],
-            ["Torremolinos", "Málaga", 30, 3.5],
-        ];
-
+      $autobuses = [
+        ["Málaga", "Ronda", 90, 10],
+        ["Churriana", "Málaga", 20, 3], 
+        ["Torremolinos", "Málaga", 30, 3.5],
+    ];
         /*
         *Ejercicio 1: Añadir dos lineas de autobús
         *
@@ -25,7 +23,9 @@
         */
      ?>
      <!--PRIMERISIMO CREO LA TABLA FUERA DEL PHP-->
-     <table>
+    <!-- MOSTRAR LAS LINEAS EN UNA TABLA -->
+
+    <table>
         <thead>
             <tr>
                 <th>Origen</th>
@@ -33,7 +33,8 @@
                 <th>Tiempo de Trayecto (min)</th>
                 <th>Precio de trayecto (€)</th>
             </tr>
-        </thead>
+        </thead> 
+        
     <!--AHORA AQUI ABRO EL TBODY Y METO EL PHP-->
     <tbody>
         <?php 

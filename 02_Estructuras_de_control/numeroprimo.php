@@ -54,3 +54,41 @@ if ($primo) {
     echo "<h4> el numero $numero no  primo </h4>";*/
     }
     */-->
+
+
+    <!--
+    /*
+        Muestra por pantalla los 50 primeros numeros primos.
+    */
+
+    $numero_primo = 10;
+    $contador = 0;
+    $k = 0;
+
+    echo "<ul>";
+    
+    while ($contador < 50) {
+        $es_primo = true;
+        $k = 0;
+        while (($k < $numero_primo) && ($es_primo)) {
+            if ($numero_primo % $k == 0) {
+                $es_primo = false;
+            }
+            $k++;
+        }
+        if ($es_primo) {
+            echo "<li>$numero_primo</li>";
+            $contador++;
+        }
+        $numero_primo++;
+        
+    }
+
+    echo "</ul>";
+
+
+
+    // Calcular el fibonacci de los 10 primeros números primos
+
+    ?>
+-->

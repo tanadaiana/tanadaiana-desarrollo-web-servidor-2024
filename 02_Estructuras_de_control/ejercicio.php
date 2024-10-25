@@ -7,59 +7,48 @@
     <title>Document</title>
 </head>
 <body>
-/*<?php
-$suma = 0;
-for ($i =0; $i <=20; i++){
-if($i %2==0){
-    $suma=$suma +$i;
-}
-}
-?>*/
-<?php
- echo <h3>$dia_espanol</h3>;
+/<?php
+    // Día de la semana en inglés
+    $dia_espanol = date("l");
 
-    $dia_espanol = date("l");//esto me da el dia en el que estamos 
-    $dia_espanol= match ($dia_espanol) {
-       
-            "Monday"=> $dia_espanol = "Lunes";
-            "Tuesday" => $dia_espanol = "Lunes";  
-            "Wednesday"=>$dia_espanol = "Miércoles";
-            "Thursday"=> $dia_espanol = "Jueves"; 
-             "Friday"=>$dia_espanol = "Viernes";
-             "Saturday"=> $dia_espanol = "Sábado"; 
-             "Sunday"=> $dia_espanol = "Domingo";
-               
-               
-        };
-        echo <h3>meses españoles</h3>;
+    
+    $dia_espanol = match ($dia_espanol) {
+        "Monday" => "Lunes",
+        "Tuesday" => "Martes",
+        "Wednesday" => "Miércoles",
+        "Thursday" => "Jueves",
+        "Friday" => "Viernes",
+        "Saturday" => "Sábado",
+        "Sunday" => "Domingo",
+    };
 
-        $mes =date("F");//este me da el mes 
-        $mes= match ($mes){
+    echo "<h3>Hoy es $dia_espanol</h3>";
 
-            "january"=>   "enero";
-            "february" => "febrero";  
-            "March"=> "Marzo";
-            "April"=>  "abril"; 
-             "May"=> "mayo";
-             "June"=>  "junio"; 
-             "july"=>  "julio";
-             "agust"=>  "Agosto";
-             "September"=> "Sepriembre";
-             "October"=> "Octubre";
-             "November"=>  "Noviembre";
-             "December"=>  "Diciembre";
-           
-        };
-        $dia=date("j");//te da el n umero de dia
-        $anno =date("Y");//este me da el año,usar para el año y mayuscula
+    // Mes actual en inglés
+    $mes = date("F");
 
-        echo <h3>"$dia_español $dia de $mes de $anno</h3>"
+    // traduccir  del mes al español usando match
+    $mes = match ($mes) {
+        "January" => "Enero",
+        "February" => "Febrero",
+        "March" => "Marzo",
+        "April" => "Abril",
+        "May" => "Mayo",
+        "June" => "Junio",
+        "July" => "Julio",
+        "August" => "Agosto",
+        "September" => "Septiembre",
+        "October" => "Octubre",
+        "November" => "Noviembre",
+        "December" => "Diciembre",
+    };
 
-?>
+    // Día y año
+    $dia = date("j");
+    $anno = date("Y");
 
 
-
-
-
+    echo "<h3>Hoy es $dia_espanol, $dia de $mes de $anno</h3>";
+    ?>
 </body>
 </html>

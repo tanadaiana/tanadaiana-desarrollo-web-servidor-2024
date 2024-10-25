@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href = "ejemplo-Styles.css" rel = "stylesheet">
+    <link href = "ejemplo-estilo.css" rel = "stylesheet">
     <title>Ejemplos</title>
 
 <!--Fuerzo con este codigo para que salga el error-->

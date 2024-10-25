@@ -12,22 +12,29 @@
 <body>
 <form action=" "    method="post">
         <label for="cantidad"> conversor de dinero</label>
-        <input type="text" name="cantidad" id="cantidad" placeholder="placeholder: cantidad" >
+        <input type="text" name="cantidad" id="cantidad" placeholder="cantidad" >
 
-        <label for="monedaorigen" ></label>
-        <input type="text" name ="monedaorigen" id="monedaorigen" placeholder="monedaorigen">
-        <label for="monedadestino"></label>
-        <input type="text" name="monedadestino" id="monedadestino" placeholder="monedadestino">
+        <select name="monedaorigen" id="monedaorigen" >   
+            <option value="EUR">EURO</option>
+            <option value="USD">DOLAR</option>
+            <option value="JPY">YEN</option>
+        </select>
+        <select name="monedadestino" id="monedadestino" > 
+            <option value="EUR">EURO</option>
+            <option value="USD">DOLAR</option>
+            <option value="JPY">YEN</option>
+        </select>
         <input type="submit" value="enviar">
     </form>
     <?php
     if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $cantidad=$_POST["cantidad"];
+        
         $monedaorigen=$_POST["monedaorigen"];  
         $monedadestino=$_POST["monedadestino"];
         
 
-        opcion=match (true) {
+        $opcion=match (true) {
           $monedaorigen == 'EUR' && $monedadestino ==  'EUR'   =>  1,
           $monedaorigen == 'EUR' && $monedadestino ==   'USD' =>  1.09,
           $monedaorigen == 'EUR' && $monedadestino ==    'JPY'=>  156.45,
@@ -44,9 +51,9 @@
         };
         if ($opcion> 0) {
             $resultado = $cantidad * $opcion;
-            echo "La cantidad de $cantidad $monedaOrigen es equivalente a $resultado $monedaDestino.";
+            echo "La cantidad es:. $cantidad $monedaorigen es equivalente a $resultado $monedadestino.";
         } else {
-            echo "Conversión de $monedaOrigen a $monedaDestino no soportada.";
+            echo "el cambio  de $monedaorigen a $monedaDestino  es erooneo.";
     }
      }
      ?>

@@ -1,14 +1,3 @@
-
-    <!--Crear un formulario que reciba dos valores: el nombre y la edad de una persona
-    
-        Si la persona tiene:
-        < 18 años, se mostrara "X ES MENOR DE EDAD" (X es el nombre)
-        >= 18 && < 65, SE MONSTRARA "x ES MAYOR DE EDAD"
-        >= 65, se mostrara "X SE HA JUBILADO"
-
-            hacer la logica con un match-->
-        
-       
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,32 +6,37 @@
     <title>Edades</title>
 </head>
 <body>
-    <!--Crear un formulario que reciba dos valores: el nombre y la edad de una persona
-    
-        Si la persona tiene:
-        < 18 años, se mostrara "X ES MENOR DE EDAD" (X es el nombre)
-        >= 18 && < 65, SE MONSTRARA "x ES MAYOR DE EDAD"
-        >= 65, se mostrara "X SE HA JUBILADO"
+    <!--
+    Crear un formulario que reciba dos valores: el nombre y la edad de una persona.
 
-            hacer la logica con un match-->
-        
-            <form action="" method="post">
-            <input type="text" name="nombre"><br><br>
-            <input type="text" name="edad">
-            <input type="submit" value="Comprobar"> 
-        </form>
-        
-        <?php
+    Si la persona tiene:
 
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $nombre = $_POST["nombre"];
-            $edad = $_EDAD["edad"];
+        < de 18 años, se mostrará "X es menor de edad" (X es el nombre).
+        >= 18 && < 65, se mostrará "X es mayor de edad.
+        >= 65, se mostrará "X se ha jubilado".
 
-            $resultado = match(true){
-                $edad < 18 => "es menor de edad",
-                $edad >= 18 and $edad < 65 => "es mayor de edad",
-                $edad >= 65 => "se ha jubilado"
-            };
+    Hacer la lógica con la estructura MATCH.
+    -->
 
-            echo "<h1>$nombre $resultado</h1>";
-        }
+    <form action = "" method = "post">
+        <input type = "text" name = "nombre" placeholder = "nombre">
+        <input type = "text" name = "edad" placeholder = "edad">
+        <input type = "submit" value = "Enviar">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nombre = $_POST["nombre"];
+        $edad = (int)$_POST["edad"];
+
+        $resultado = match (true) {
+            $edad < 18 => "es menor de edad.",
+            $edad >= 18 && $edad <65 => "es mayor de edad.",
+            $edad >= 65 => "está jubilado."
+        };
+
+        echo "<p>$nombre, con $edad años, $resultado</p>";
+    }
+    ?>
+</body>
+</html>

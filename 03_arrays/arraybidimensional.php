@@ -113,7 +113,7 @@
             ?>
         </tbody>
     </table>
-       <!--------------------------------------------------------------------------->
+       <!----------------------------------para saber si el videojuego es gratis o de pago agrego columna 3----------------------------------------->
 
        <h3>Miro si el juego es gratis o de pago</h3>
     <table>
@@ -131,7 +131,7 @@
                 if($videojuegos[$i][2] == 0){
                     $videojuegos[$i][3] = "GRATIS";
                 }elseif( $videojuegos[$i][2] > 0){
-                    $autobuses[$i][3] = "PAGO";
+                    $videojuegos[$i][3] = "PAGO";
                 }
             }
 

@@ -155,7 +155,23 @@
         default => "<p>Hoy $dia_espanol no tenemos clase de web servidor</p>"
     };
     */
+    // Almacenamos el día en español
+    <?php
+    $dia_espanol = match($dia) {
+        "Monday" => "Lunes",
+        "Tuesday" => "Martes",
+        "Wednesday" => "Miércoles",
+        "Thursday" => "Jueves",
+        "Friday" => "Viernes",
+        "Saturday" => "Sábado",
+        "Sunday" => "Domingo",
+    };
+    echo $dia_espanol;
+    ?>
+  
 
+
+    
     $resultado = match($dia_espanol) {
         "Martes",
         "Miércoles",
@@ -166,4 +182,37 @@
     echo $resultado;
     ?>
 </body>
-</html>
+</html>---------------------------------$_COOKIE    <?php
+    $dia = date("l");
+
+    echo "<h1>Hoy es $dia</h1>";
+
+    /*
+        HACER UN SWITCH QUE MUESTRE POR PANTALLA SI HOY HAY CLASES
+        DE WEB SERVIDOR
+    */
+
+    # Forma 1 de hacerlo
+    switch($dia) {
+        case "Monday":
+            echo "<p>Hoy $dia no hay clases de web servidor</p>";
+            break;
+        case "Tuesday":
+        case "Wednesday":
+        case "Friday":
+            echo "<p>Hoy $dia sí hay clases de web servidor</p>";
+            break;
+        default:
+            echo "<p>Hoy $dia no hay clases de web servidor</p>";
+            break;
+   
+    // Almacenamos el día en español
+    $dia_espanol = match($dia) {
+        "Monday" => "Lunes",
+        "Tuesday" => "Martes",
+        "Wednesday" => "Miércoles",
+        "Thursday" => "Jueves",
+        "Friday" => "Viernes",
+        "Saturday" => "Sábado",
+        "Sunday" => "Domingo",
+    };

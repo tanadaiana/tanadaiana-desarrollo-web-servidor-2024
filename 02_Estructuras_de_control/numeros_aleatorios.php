@@ -72,3 +72,25 @@
     ?>
 </body>
 </html>
+<!--  //   Rangos: [-10,0), [0,10], (10,20]
+    $numero = rand(-10,20);
+    $resultado = match(true) {
+        $numero >= -10 && $numero <0 => "El número $numero está en el rango [-10,0)",
+        $numero >= 0 && $numero <= 10 => "El número $numero está en el rango [0,10]",
+        $numero > 10 && $numero <= 20 => "El número $numero está en el rango (10,20]"
+    };
+    echo $resultado;
+
+    ?>-------------------------------
+      $random = rand(1,10);
+
+        switch ($random) {
+            case ($random % 2 == 0):
+                echo "<p>El número $random es par.</p>";
+                break;
+            case ($random % 2 == 1):
+                echo "<p>El número $random es impar.</p>";
+                break;
+        }
+</body>
+</html>-->
