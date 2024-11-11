@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
   //titulo
     if ($tmp_titulo != '') {
-        $patron = "/^[A-Za-z0-9]{1,60}$/";
+        $patron = "/^[A-Z\ a-z0-9]{1,60}$/";
         if (preg_match($patron, $tmp_titulo)) { // Verificar si coincide con el patrón
             $titulo = ucwords(strtolower($tmp_titulo)); // Si es válido, formatea el título
         } else if (strlen($tmp_titulo) < 1 || strlen($tmp_titulo) > 60) { // Si no cumple la longitud
@@ -79,10 +79,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <label>Consola</label><br>
     <input type="radio" name="consola" value="pc"> PC<br>
     <input type="radio" name="consola" value="nintendo switch"> Nintendo Switch<br>
-  <input type="radio" name="consola" value="ps4"> 
-  <label>PS4</label> <br><br>
-  <input type="radio" name="consola" value="ps5"> 
-  <label>PS5</label> <br><br>
+    <input type="radio" name="consola" value="ps4"><label>PS4</label><br>
+    <input type="radio" name="consola" value="ps5"><label>PS5</label><br>
     <input type="radio" name="consola" value="xbox series x"> Xbox Series X<br>
     <input type="radio" name="consola" value="xbox series s"> Xbox Series S<br>
     <?php if (isset($err_consola)) echo "<span class='error'>$err_consola</span>"; ?><br><br>

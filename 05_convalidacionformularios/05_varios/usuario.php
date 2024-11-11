@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,24 +16,21 @@
         $tmp_usuario = $_POST["usuario"];
         $tmp_nombre = $_POST["nombre"];
         $tmp_apellidos = $_POST["apellidos"];
-        $tmp_fecha_nacimiento = $_POST["fecha_nacimiento"];  ///recojemos en el formulario 4 variable distintas 
+        $tmp_fecha_nacimiento = $_POST["fecha_nacimiento"];
 
         /**
          * Entre 4 y 12 caracteres
          * Letras a-z (mayus o minus), números y barrabaja
-         * 
-         * 
-         * en cada una de las variable vamos filtrando
          */
-        if($tmp_usuario == '') { //sino me ha metido nada sale el error y sino entra al else
+        if($tmp_usuario == '') {
             $err_usuario = "El usuario es obligatorio";
         } else {
-            $patron = "/^[a-zA-Z0-9_]{4,12}$/";// 
-            if(!preg_match($patron, $tmp_usuario)) { //aqui lo q introdujo el usuario lo comparamos,si el usuario me introduce 3 caracteres salta el erro
+            $patron = "/^[a-zA-Z0-9_]{4,12}$/";
+            if(!preg_match($patron, $tmp_usuario)) {
                 $err_usuario = "El usuario debe tener 4 a 12 caracteres y 
                     contener letras, números o barrabaja";
             } else {
-                $usuario = $tmp_usuario;//si el usuario metio buen(osea mas de 4 cracter ) entra por el else y entonces metemos la variable temporal en la variable
+                $usuario = $tmp_usuario;
                 echo "<h2>El usuario es $usuario</h2>";
             }
         }
@@ -45,7 +42,7 @@
         if($tmp_nombre == '') {
             $err_nombre = "El nombre es obligatorio";
         } else {
-            if(strlen($tmp_nombre) < 2 || strlen($tmp_nombre) > 30) {//strlen es la longitud d ela cadena
+            if(strlen($tmp_nombre) < 2 || strlen($tmp_nombre) > 30) {
                 $err_nombre = "El nombre tiene que tener entre 2 y 30 caracteres";
             } else {
                 $patron = "/^[a-zA-Z\ áéíóúÁÉÍÓÚ]+$/";
@@ -95,22 +92,31 @@
             } else {
                 $fecha_actual = date("Y-m-d");  //  2024 25 10
                 list($anno_actual,$mes_actual,$dia_actual) = explode('-',$fecha_actual);
-                if( $anno_actual -(date("y")) <= 120){
-                    $fecha_nacimiento =$tmp_fecha_nacimiento;
-                }else if($anno_actual - date("y") >121){
-                    $err_fecha_nacimiento="la fecha no es valido"
-                }else {
-                    if($dia_actual > date("d")){
-                        $fecha_nacimiento =$tmp_fecha_nacimiento;
-                    }else{
-                        $err_fecha_nacimiento="no es valido"
-                    }
-                   
-                }
             }
         }
     }
-
+    
+        //Correo electrónico
+        if ($tmp_correo_electronico != '') {
+            $patron = "/^[A-Za-z0-9_]{1,10}@[a-z]{1,10}.[a-z]{1,3}$/";
+            if (preg_match($patron, $tmp_correo_electronico)) {
+                $palabrotas = ["bobo", "tonto", "cochino"];
+                $encontrada = false;
+                for($i = 0; $i < count($palabrotas); $i++) {
+                    if (str_contains($tmp_correo_electronico, $palabrotas[$i])) {
+                        $i = count($palabrotas);
+                        $encontrada = true;
+                    }
+                }
+                if (!$encontrada) $correo_electronico = $tmp_correo_electronico;
+                else $err_correo_electronico = "No puede contener palabrotas";
+            } else {
+                $err_correo_electronico = "Correo electronico no válido";
+            }
+        } else {
+            $err_correo_electronico = "El correo electrónico es obligatorio";
+        }
+    
     ?>
     <form action="" method="post">
         <input type="text" name="usuario" placeholder="Usuario">
@@ -125,8 +131,10 @@
         <label>Fecha de nacimiento</label><br>
         <input type="date" name="fecha_nacimiento" placeholder>
         <?php if(isset($err_fecha_nacimiento)) echo "<span class='error'>$err_fecha_nacimiento</span>"; ?>
-        <br><br>
-        <input type="submit" value="Registrarse">
+        <input type = "text" name = "correo_electronico" placeholder = "Correo electrónico"><br>
+        <?php if (isset($err_correo_electronico)) echo "<span class = 'error'>$err_correo_electronico</span>";?><br><br>
+        <input type = "submit" value = "Registrarse">
+        
     </form>
 </body>
 </html>
