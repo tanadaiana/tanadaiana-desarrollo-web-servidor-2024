@@ -96,6 +96,8 @@
         }
     }
     
+
+    
         //Correo electrónico
         if ($tmp_correo_electronico != '') {
             $patron = "/^[A-Za-z0-9_]{1,10}@[a-z]{1,10}.[a-z]{1,3}$/";

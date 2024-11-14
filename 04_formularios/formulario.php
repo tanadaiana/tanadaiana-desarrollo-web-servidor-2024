@@ -11,8 +11,8 @@
          ?>
          <form action="" method="post">
          <label for="maximo">maximo</label>
-         <imput type="text" name="maximo id="placeholder="introducion el maximo"
-         <br></br>
+         <imput type="text" name="maximo id="placeholder="introducion el maximo">
+ 
          </form>
          <?php if($__server["REQUEST_METHOD"]=="POST"){
 
