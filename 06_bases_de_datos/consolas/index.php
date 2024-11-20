@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consolas</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <?php
-    error_reporting( E_ALL );
-    ini_set( "display_errors", 1 );
-    require('conexion.php');
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 ); 
+        
+        require('conexion.php');
     ?>
+    <style>
+        .table-primary {
+            --bs-table-bg: #b0008e;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <?php
-        $sql = "SELECT * FROM consolas";
-        $resultado = $_conexion -> query($sql);
-        //Ejecuta la consulta que hemos hecho en la conexion creada. Devuelve algo parecido a un array (en caso de que vaya bien) o falso.
+            $sql = "SELECT * FROM consolas";
+            $resultado = $_conexion -> query($sql);
         ?>
-        <table class ="table table-striped table-primary">
-            <thead class = "table-dark">
+        <table class="table table-striped">
+            <thead class="table-primary">
                 <tr>
                     <th>Nombre</th>
                     <th>Fabricante</th>
@@ -29,15 +35,16 @@
             </thead>
             <tbody>
                 <?php
-                    //trata este objeto como si fuese un array asociativo, y va a ir creando filas
-                    while ($fila = $resultado -> fetch_assoc()) {
-                        //Si hay una consola que no tiene unidades vendidas, mostrar "no hay datos"
+                    while($fila = $resultado -> fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . $fila["nombre"] . "</td>";
                         echo "<td>" . $fila["fabricante"] . "</td>";
                         echo "<td>" . $fila["generacion"] . "</td>";
-                        if ($fila["unidades_vendidas"] == NULL) echo "<td>No hay datos</td>";
-                        else echo "<td>" . $fila["unidades_vendidas"] . "</td>";
+                        if($fila["unidades_vendidas"] === NULL) {
+                            echo "<td>No hay datos</td>";
+                        } else {
+                            echo "<td>" . $fila["unidades_vendidas"] . "</td>";
+                        }
                         echo "</tr>";
                     }
                 ?>

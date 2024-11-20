@@ -3,52 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animes</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- <style>
-        th, td {
-            border: 1px solid black;
-            padding: 5px;
-        }
-    </style> -->
     <?php
-    error_reporting( E_ALL );
-    ini_set( "display_errors", 1 );
-    require('conexion.php');
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 ); 
+        
+        require('conexion.php');
     ?>
     <style>
         .table-primary {
-            --bs-table-bg: #C1D88A;
+            --bs-table-bg: #b0008e;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <h1>Listado de animes</h1>
         <?php
-        $sql = "SELECT * FROM animes";
-        $resultado = $_conexion -> query($sql);
-        //Ejecuta la consulta que hemos hecho en la conexion creada. Devuelve algo parecido a un array (en caso de que vaya bien) o falso.
+            $sql = "SELECT * FROM animes";
+            $resultado = $_conexion -> query($sql);
         ?>
-        <table class ="table table-striped table-primary">
-            <thead class = "table-dark">
+        <a class="btn btn-secondary" href="nuevo_anime.php">Nuevo anime</a><br><br>
+        <table class="table table-striped">
+            <thead class="table-primary">
                 <tr>
                     <th>Título</th>
                     <th>Estudio</th>
                     <th>Año</th>
                     <th>Número de temporadas</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    //trata este objeto como si fuese un array asociativo, y va a ir creando filas
-                    while ($fila = $resultado -> fetch_assoc()) {
-                        // ["titulo"=>"Frieren, "nombre_estudio"="Pierrot"...]
-                        //va a coger el nombre de las columnas que se usa en la bbdd
+                    while($fila = $resultado -> fetch_assoc()) {
+                        // ["titulo"=>"Frieren","nombre_estudio"="Pierrot"...]
                         echo "<tr>";
                         echo "<td>" . $fila["titulo"] . "</td>";
                         echo "<td>" . $fila["nombre_estudio"] . "</td>";
                         echo "<td>" . $fila["anno_estreno"] . "</td>";
                         echo "<td>" . $fila["num_temporadas"] . "</td>";
+                        ?>
+                        <td>
+                            <img width="50" heigth="80" src="<?php echo $fila["imagen"] ?>">
+                        </td>
+                        <?php
                         echo "</tr>";
                     }
                 ?>
