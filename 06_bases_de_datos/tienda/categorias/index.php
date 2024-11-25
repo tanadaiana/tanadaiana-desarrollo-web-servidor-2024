@@ -9,7 +9,7 @@
         error_reporting( E_ALL );
         ini_set( "display_errors", 1 ); 
         
-        require('conexion.php');
+        require('../util/conexion.php');
     ?>
     <style>
         .table-primary {
@@ -44,10 +44,29 @@
                             echo "<td>No hay datos</td>";
                         } else {
                             echo "<td>" . $fila["unidades_vendidas"] . "</td>";
-                        }
+                        } 
+                        ?>
+                        <td>
+                            <img width="50" heigth="80" src="<?php echo $fila["imagen"] ?>">
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" 
+                               href="editar_anime.php?id_anime=<?php echo $fila["id_anime"] ?>">Editar</a>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <input type="hidden" name="id_anime" value="<?php echo $fila["id_anime"] ?>">
+                                <input class="btn btn-danger" type="submit" value="Borrar">
+                            </form>
+                        </td>
+                        <?php
+
                         echo "</tr>";
                     }
                 ?>
+                   
+
+                
             </tbody>
         </table>
     </div>

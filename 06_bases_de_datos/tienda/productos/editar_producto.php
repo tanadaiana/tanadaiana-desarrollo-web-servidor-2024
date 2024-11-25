@@ -9,7 +9,7 @@
     /**CODIGO DE ERROR */
         error_reporting( E_ALL );
         ini_set( "display_errors", 1 );
-        require('conexion.php')
+        require('../util/conexion.php');
     ?>
     <style>
         .table-primary{

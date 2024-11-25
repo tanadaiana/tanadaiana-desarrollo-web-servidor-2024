@@ -9,7 +9,7 @@
         error_reporting( E_ALL );
         ini_set( "display_errors", 1 ); 
         
-        require('conexion.php');
+        require('../util/conexion.php');
     ?>
     <style>
         .table-primary {
@@ -62,6 +62,10 @@
                         ?>
                         <td>
                             <img width="50" heigth="80" src="<?php echo $fila["imagen"] ?>">
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" 
+                               href="editar_producto.php?id_producto=<?php echo $fila["id_producto"] ?>">Editar</a>
                         </td>
                         <td>
                             <form action="" method="post">
