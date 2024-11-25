@@ -41,12 +41,18 @@
                         echo "<td>" . $fila["fabricante"] . "</td>";
                         echo "<td>" . $fila["generacion"] . "</td>";
                         if($fila["unidades_vendidas"] === NULL) {
-                            echo "<td>No hay datos</td>";
+                            echo "<td>No hay datos</td>"; //Si es NULL, se muestra el texto "No hay datos" en la celda correspondiente.
                         } else {
-                            echo "<td>" . $fila["unidades_vendidas"] . "</td>";
+                            echo "<td>" . $fila["unidades_vendidas"] . "</td>";//   Si no es NULL, se muestra el valor de unidades_vendidas.
                         }
                         echo "</tr>";
                     }
+                    /*Condición: Comprueba si el valor en la columna unidades_vendidas es NULL.
+                     Esto ocurre si esa información no está disponible o no ha sido registrada en la base de datos.
+                    Salida:
+                    Si es NULL, se muestra el texto "No hay datos" en la celda correspondiente.
+                    Si no es NULL, se muestra el valor de unidades_vendidas.
+                    Esta verificación asegura que no se muestre un valor vacío en la tabla, mejorando la experiencia visual y lógicA*/
                 ?>
             </tbody>
         </table>
