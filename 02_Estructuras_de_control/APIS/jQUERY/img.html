@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos con Imágenes en jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .image-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        img {
+            max-width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ejemplos con Imágenes en jQuery</h1>
+
+<!-- Ejemplo 1: Mostrar/Ocultar una imagen -->
+<div class="image-container">
+    <button id="toggleImageBtn">Mostrar/Ocultar Imagen</button>
+    <img id="image1" src="https://via.placeholder.com/300" alt="Ejemplo 1">
+</div>
+<script>
+    // Al hacer clic en el botón, muestra u oculta la imagen
+    $('#toggleImageBtn').click(function () {
+        $('#image1').toggle();
+    });
+</script>
+
+<!-- Ejemplo 2: Cambiar la opacidad de una imagen -->
+<div class="image-container">
+    <button id="fadeImageBtn">Cambiar Opacidad</button>
+    <img id="image2" src="https://via.placeholder.com/300" alt="Ejemplo 2">
+</div>
+<script>
+    // Reduce la opacidad de la imagen al hacer clic y luego la restaura
+    $('#fadeImageBtn').click(function () {
+        $('#image2').fadeToggle();
+    });
+</script>
+
+<!-- Ejemplo 3: Cambiar la fuente de la imagen al pasar el ratón -->
+<div class="image-container">
+    <img id="hoverImage" src="https://via.placeholder.com/300" alt="Ejemplo 3">
+</div>
+<script>
+    // Cambia la imagen cuando el ratón pasa sobre ella
+    $('#hoverImage').hover(
+        function () {
+            $(this).attr('src', 'https://via.placeholder.com/300/ff0000');
+        },
+        function () {
+            $(this).attr('src', 'https://via.placeholder.com/300');
+        }
+    );
+</script>
+
+<!-- Ejemplo 4: Animar el tamaño de una imagen -->
+<div class="image-container">
+    <button id="resizeImageBtn">Animar Tamaño</button>
+    <img id="resizeImage" src="https://via.placeholder.com/300" alt="Ejemplo 4">
+</div>
+<script>
+    // Cambia el tamaño de la imagen con animación
+    $('#resizeImageBtn').click(function () {
+        $('#resizeImage').animate({
+            width: '+=50px',
+            height: '+=50px'
+        }, 500);
+    });
+</script>
+
+<!-- Ejemplo 5: Cargar una imagen dinámicamente -->
+<div class="image-container">
+    <button id="loadImageBtn">Cargar Imagen</button>
+    <div id="imageContainer"></div>
+</div>
+<script>
+    // Carga una nueva imagen en el contenedor cuando se hace clic
+    $('#loadImageBtn').click(function () {
+        $('#imageContainer').html('<img src="https://via.placeholder.com/300/0000ff" alt="Ejemplo 5">');
+    });
+</script>
+
+</body>
+</html>

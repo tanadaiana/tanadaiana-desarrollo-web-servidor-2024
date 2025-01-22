@@ -1,0 +1,41 @@
+
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Color con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Haz que un <div> cambie de color cuando el ratón entre y vuelva al color
+original cuando el ratón salga.-->
+    <style>
+        #miDiv {
+            width: 200px;
+            height: 200px;
+            background-color: blue; /* Color original */
+            margin: 50px auto;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="miDiv">Pasa el ratón</div>
+
+<script>
+    $(document).ready(function() {
+        var colorOriginal = $('#miDiv').css('background-color');
+
+        $('#miDiv').mouseenter(function() {
+            $(this).css('background-color', 'red'); // Cambiar a color al pasar el ratón
+        }).mouseleave(function() {
+            $(this).css('background-color', colorOriginal); // Volver al color original
+        });
+    });
+</script>
+
+</body>
+</html>

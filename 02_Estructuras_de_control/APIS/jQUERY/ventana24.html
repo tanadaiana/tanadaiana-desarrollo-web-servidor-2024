@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptar div al tamaño de la ventana</title>
+    <!---Haz que el contenido de un <div> se adapte al tamaño de la ventana-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #miDiv {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function ajustarDiv() {
+                $('#miDiv').css({
+                    width: $(window).width(),
+                    height: $(window).height()
+                });
+            }
+
+            ajustarDiv(); // Ajustar el div al cargar la página
+
+            $(window).resize(function() {
+                ajustarDiv(); // Ajustar el div al cambiar el tamaño de la ventana
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="miDiv">Este div se adapta al tamaño de la ventana</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Detecta cuando se presiona una tecla en un campo de texto con id #busqueda y muestra un mensaje en consola-->
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detectar Tecla</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<input type="text" id="busqueda" placeholder="Escribe algo...">
+
+<script>
+$(document).ready(function() {
+    $('#busqueda').on('keyup', function() {
+        console.log('Se presionó una tecla en el campo de búsqueda.');
+    });
+});
+</script>
+
+</body>
+</html>
+</body>
+</html>

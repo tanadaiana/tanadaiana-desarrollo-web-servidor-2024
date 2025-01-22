@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva en dispositivos móviles -->
+    <title>Document</title> <!-- Título que aparece en la pestaña del navegador -->
+    <script src="./asset/jquery-3.7.1.min.js"></script> <!-- Importa la librería jQuery desde un archivo local -->
+    <script>
+        $(document).ready(function(){
+            /* 
+               Este bloque de código se ejecutará una vez que el DOM esté completamente cargado.
+               Aquí se realizan diversas operaciones de manipulación de DOM con jQuery.
+            */
+
+            // Selección y uso del método .append() para añadir un nuevo elemento al final de la lista
+            $('#lista').append('<li>Item 5</li>');  
+            /*
+               La función $('#lista').append('<li>Item 5</li>'); selecciona el elemento con id 'lista' (la lista ordenada)
+               y añade un nuevo elemento en forma de <li> con texto "Item 5" al final de la lista.
+            */
+
+            // Selección y uso del método .prepend() para añadir un nuevo elemento al principio de la lista
+            $('#lista').prepend('<li>Item 0</li>');  
+            /*
+               La función $('#lista').prepend('<li>Item 0</li>'); selecciona el elemento con id 'lista' 
+               y añade un nuevo elemento en forma de <li> con texto "Item 0" al principio de la lista.
+            */
+
+            // Remoción del primer elemento de la lista
+            $('li:first').remove();  
+            /*
+               El selector $('li:first') selecciona el primer elemento <li> de la lista y el método .remove() elimina ese elemento.
+            */
+
+            // Remoción del último elemento de la lista
+            $('li:last').remove();  
+            /*
+               El selector $('li:last') selecciona el último elemento <li> de la lista y el método .remove() elimina ese elemento.
+            */
+
+            // Remoción del primer elemento (al iniciar desde 0) de la lista
+            $('li:eq("0")').remove();  
+            /*
+               $('li:eq("0")') selecciona el primer elemento en la lista, utilizando el índice de inicio en 0, y luego el método .remove() elimina ese elemento.
+            */
+
+            // Remoción del cuarto elemento (al iniciar desde 0) de la lista
+            $('li').eq("3").remove();  
+            /*
+               El método $('li').eq("3") selecciona el cuarto elemento (al iniciar en 0) de la lista y el método .remove() elimina ese elemento.
+            */
+
+            // Añade un nuevo elemento al final de la lista y lo colorea de rojo
+            $('li:last').append('<li>Item 10</li>');  
+            $('li:last').css("color","red");  
+            /*
+               Se añade un nuevo elemento <li> con texto "Item 10" al final de la lista y luego se utiliza .css() para cambiar el color de ese elemento a rojo.
+            */
+        })
+    </script>
+</head>
+<body>
+    <!-- Lista ordenada con id 'lista' y varios elementos <li> -->
+    <ol id="lista">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ol>
+</body>
+</html>

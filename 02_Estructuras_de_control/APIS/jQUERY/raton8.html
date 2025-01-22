@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Detecta cuando el usuario hace doble clic sobre un <p> y cambia su texto.-->
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Doble Clic</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("p").dblclick(function() {
+                $(this).text("¡Texto cambiado tras el doble clic!");
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Haz doble clic aquí para cambiar este texto.</p>
+</body>
+</html>
+</body>
+</html>

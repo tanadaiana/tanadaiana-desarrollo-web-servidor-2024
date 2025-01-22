@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+Copiar
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Fondo</title>
+    <!--10-Detecta cuando el usuario presiona la tecla "Shift" y cambia el color de fondo
+de un <p>-->-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        p {
+            padding: 20px;
+            border: 1px solid #000;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+<p id="miParrafo">Presiona la tecla "Shift" para cambiar el color de fondo.</p>
+
+<script>
+$(document).ready(function() {
+    $(document).keydown(function(event) {
+        if (event.shiftKey) {
+            $('#miParrafo').css('background-color', 'yellow'); // Cambia el color a amarillo
+        }
+    });
+
+    $(document).keyup(function(event) {
+        if (event.key === "Shift") {
+            $('#miParrafo').css('background-color', ''); // Restablece el color cuando se suelta Shift
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+</body>
+</html>

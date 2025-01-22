@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detectar Minimización</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--23-Detecta cuando se minimiza la ventana y muestra un mensaje en la consola-->
+    <script>
+        $(document).ready(function() {
+            $(window).on('resize', function() {
+                // Comprobamos si el ancho de la ventana es menor que 100 píxeles
+                if ($(this).width() < 100 || $(this).height() < 100) {
+                    console.log("La ventana ha sido minimizada");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Detectar Minimización de Ventana</h1>
+</body>
+</html>

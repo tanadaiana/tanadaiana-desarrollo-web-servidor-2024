@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detectar Enter en Input</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<!--1-Detecta cuando se presiona la tecla "Enter" en un <input> y muestra un mensaje en
+la consola.-->
+<body>
+
+    <input type="text" id="miInput" placeholder="Escribe algo y presiona Enter">
+
+    <script>
+        $(document).ready(function() {
+            $('#miInput').on('keypress', function(e) {
+                if (e.which == 13) { // 13 es el código de la tecla "Enter"
+                    console.log('Se presionó la tecla Enter');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+</body>
+</html>

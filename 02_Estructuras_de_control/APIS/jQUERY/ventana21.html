@@ -1,0 +1,33 @@
+
+22-Detecta cuando la ventana se carga y cambia el fondo de la página a azul.
+23-Detecta cuando se minimiza la ventana y muestra un mensaje en la consola.
+24-Haz que el contenido de un <div> se adapte al tamaño de la ventana.
+25-Muestra el tamaño de la ventana cada vez que se redimensiona.
+26-Detecta cuando la ventana está a punto de cerrarse y muestra un mensaje de
+confirmación.
+27-Haz que un elemento con id #contenedor se muestre u oculte cuando se haga un
+scroll en la página.
+28-Detecta cuando la ventana se desplaza y muestra la posición en la consola.
+29-Haz que un <div> cambie de tamaño cuando se redimensiona la ventana.
+30-Detecta si la ventana es redimensionada a un tamaño específico y muestra un
+mensaje.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detectar Redimensionamiento</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--21.Detecta cuando la ventana se redimensiona y muestra un mensaje en la consola.-->
+    <script>
+        $(document).ready(function() {
+            $(window).resize(function() {
+                console.log('La ventana ha sido redimensionada.');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Redimensiona la ventana y observa la consola.</h1>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpiar Campo con Esc</title>
+    <!-- Incluye jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Escuchar el evento de teclado
+            $(document).keydown(function(event) {
+                // Comprobar si la tecla presionada es "Esc"
+                if (event.key === 'Escape') {
+                    // Limpiar el contenido del campo con id "campo"
+                    $('#campo').val('');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="campo" placeholder="Escribe algo aquí...">
+</body>
+</html>

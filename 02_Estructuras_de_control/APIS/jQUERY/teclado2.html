@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--2-Muestra un mensaje cada vez que el usuario escriba en un campo de texto con id
+#inputTexto.-->
+    <script>
+        $(document).ready(function() {
+            $('#inputTexto').on('input', function() {
+                alert('Has escrito: ' + $(this).val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="inputTexto" placeholder="Escribe algo...">
+</body>
+</html>
+</body>
+</html>

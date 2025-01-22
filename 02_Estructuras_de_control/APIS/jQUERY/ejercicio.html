@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejercicios DOM Básicos</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        p {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        ul {
+            display: none; /* Ocultar listas por defecto */
+            margin-left: 20px;
+            list-style-type: circle;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .azul {
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://jquery.m.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1. Mostrar en un alert la cantidad de cursos por los que está compuesto el ciclo
+            alert(`Cantidad de cursos: ${$('p').length}`);
+
+            // 2. Mostrar/ocultar las listas al pasar el ratón sobre "Primero" o "Segundo"
+            $('p').hover(
+                function () {
+                    $(this).next('ul').fadeIn(2000); // Mostrar en 2 segundos
+                },
+                function () {
+                    $(this).next('ul').fadeOut(2000); // Ocultar en 2 segundos
+                }
+            );
+
+            // 3. Desplegar/plegar las listas al pulsar una tecla (por ejemplo, 'L')
+            $(document).on('keydown', function (e) {
+                if (e.key === 'l' || e.key === 'L') {
+                    $('ul').slideToggle('fast'); // Alterna la visibilidad rápidamente
+                }
+            });
+
+            // 4. Modificar para que se haga con una sola tecla
+            $(document).off('keydown').on('keydown', function (e) {
+                if (e.key === 't' || e.key === 'T') {
+                    $('ul').slideToggle('fast');
+                }
+            });
+
+            // 5. Eliminar el efecto del punto 3
+            // Nota: No hay un efecto "activo" para eliminar aquí explícitamente
+            $(document).off('keydown');
+
+            // 6. Solo mostrar listas la primera vez que se pulse la tecla 'T'
+            let firstPress = true;
+            $(document).on('keydown', function (e) {
+                if (firstPress && (e.key === 't' || e.key === 'T')) {
+                    $('ul').slideToggle('fast');
+                    firstPress = false;
+                }
+            });
+
+            // 7. Mostrar horas semanales al pasar el ratón sobre los módulos de segundo
+            $('li.azul').hover(function (e) {
+                const hours = $(this).closest('ul').data('hours') || 'Desconocido';
+                const tooltip = $('<div></div>')
+                    .text(`Horas semanales: ${hours}`)
+                    .css({
+                        position: 'absolute',
+                        top: e.pageY + 5,
+                        left: e.pageX + 5,
+                        background: '#f1f1f1',
+                        border: '1px solid #ccc',
+                        padding: '5px',
+                        borderRadius: '5px',
+                        fontSize: '12px',
+                    });
+                $('body').append(tooltip);
+                $(this).on('mouseleave', () => tooltip.remove());
+            });
+
+            // 8. Mostrar horas al hacer clic y delegar eventos
+            $('ul').on('click', 'li.azul', function (e) {
+                const hours = $(this).closest('ul').data('hours') || 'Desconocido';
+                alert(`Horas semanales: ${hours}`);
+            });
+
+            // 9. Mostrar modalidad al hacer clic (presencial)
+            $('ul').on('click', 'li.azul', function (e) {
+                alert('Modalidad: Presencial');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>Primero</p>
+    <ul>
+        <li>Base de Datos</li>
+        <li>Lenguajes de Marcas</li>
+        <li>Entornos de Desarrollo</li>
+    </ul>
+
+    <p>Segundo</p>
+    <ul>
+        <li>DWESE
+            <ul data-hours="10">
+                <li class="azul">Desarrollo Web en Entorno Servidor</li>
+            </ul>
+        </li>
+        <li>DWECL
+            <ul data-hours="7">
+                <li class="azul">Desarrollo Web en Entorno Cliente</li>
+            </ul>
+        </li>
+        <li>DAW
+            <ul data-hours="3">
+                <li class="azul">Despliegue de Aplicaciones Web</li>
+            </ul>
+        </li>
+        <li>DIWEB
+            <ul data-hours="6">
+                <li class="azul">Diseño de Interfaces Web</li>
+            </ul>
+        </li>
+        <li>EIE
+            <ul data-hours="4">
+                <li class="azul">Entorno e Iniciativa Empresarial</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

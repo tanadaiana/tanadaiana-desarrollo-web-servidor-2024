@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamaño de la Ventana</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Muestra el tamaño de la ventana cada vez que se redimensiona.-->
+    <style>
+        #size {
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="size">Tamaño de la ventana: </div>
+
+    <script>
+        $(document).ready(function() {
+            function updateSize() {
+                var width = $(window).width();
+                var height = $(window).height();
+                $('#size').text('Tamaño de la ventana: ' + width + 'px x ' + height + 'px');
+            }
+
+            // Llama a la función al cargar la página
+            updateSize();
+
+            // Escucha el evento resize
+            $(window).resize(function() {
+                updateSize();
+            });
+        });
+    </script>
+</body>
+</html>

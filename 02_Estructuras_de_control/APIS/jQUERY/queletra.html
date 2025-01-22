@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Establece el conjunto de caracteres como UTF-8, lo que permite usar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la visualización en dispositivos móviles -->
+    <title>Document</title> <!-- Define el título de la página web que se mostrará en la pestaña del navegador -->
+
+    <!-- Carga la librería jQuery desde un archivo local (./asset/jquery-3.7.1.min.js) -->
+    <script src="./asset/jquery-3.7.1.min.js"></script> 
+
+    <script>
+        $(document).ready(function(){
+            // Esta función asegura que el código jQuery se ejecute solo cuando el DOM esté completamente cargado.
+
+            // Aquí se asocia un evento 'keypress' a un campo de texto con id 'cajaTexto'
+            $('#cajaTexto').keypress(function(e){
+                // Este código se ejecuta cada vez que una tecla se presiona en el campo de texto.
+
+                // 'e.which' es el código de la tecla que se presionó. 
+                // 'String.fromCharCode(e.which)' convierte ese código de la tecla a su carácter correspondiente.
+                $('#teclaPulsada').text(String.fromCharCode(e.which));
+                // Luego, el carácter detectado se muestra en el elemento con id 'teclaPulsada'.
+            });
+        })
+    </script>
+
+</head>
+<body>
+    <h1>Detección teclas</h1> <!-- Título de la página visible en el cuerpo del documento -->
+
+    <!-- Campo de entrada de texto con id 'cajaTexto'. El usuario puede escribir en este campo -->
+    <input type="text" id="cajaTexto">
+
+    <!-- Elemento <p> donde se mostrará el carácter de la tecla presionada -->
+    <p id="teclaPulsada"></p> 
+    <!-- Este párrafo inicialmente está vacío, pero se actualizará con el carácter de la tecla presionada por el usuario -->
+
+</body>
+</html>

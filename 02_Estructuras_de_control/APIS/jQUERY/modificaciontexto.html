@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Incluir jQuery desde un archivo local -->
+    <script src="./asset/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            // Este código se ejecutará una vez que el documento (DOM) haya sido completamente cargado
+
+            // Asocia un evento de clic al botón con id 'rojo'
+            $('#rojo').click(function() {
+                // Cuando se hace clic en el botón 'rojo', se cambia el color del texto del elemento con id 'palabra' a rojo
+                $('#palabra').css('color', 'red');
+            })
+
+            // Asocia un evento de clic al botón con id 'azul'
+            $('#azul').click(function() {
+                // Cuando se hace clic en el botón 'azul', se cambia el color del texto del elemento con id 'palabra' a azul
+                $('#palabra').css('color', 'blue');
+            })
+
+            // Asocia un evento de clic al botón con id 'grande'
+            $('#grande').click(function() {
+                // Cuando se hace clic en el botón 'grande', se cambia el tamaño de la fuente del texto del elemento con id 'palabra' a 80px
+                $('#palabra').css('font-size', '80px');
+            })
+
+            // Asocia un evento de clic al botón con id 'pequeno'
+            $('#pequeno').click(function() {
+                // Cuando se hace clic en el botón 'pequeno', se cambia el tamaño de la fuente del texto del elemento con id 'palabra' a 10px
+                $('#palabra').css('font-size', '10px');
+            })
+
+            // Asocia un evento de clic al botón con id 'original'
+            $('#original').click(function() {
+                // Cuando se hace clic en el botón 'original', se cambia el tamaño de la fuente del texto del elemento con id 'palabra' a 32px
+                $('#palabra').css('font-size', '32px');
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- Encabezado H1 con id 'palabra', el texto dentro cambiará con los clics en los botones -->
+    <h1 id="palabra">HOLA MUNDO</h1>
+
+    <!-- Botones que permiten modificar el estilo del texto en el h1 con id 'palabra' -->
+    <input type="button" value="Rojo" id="rojo"> <!-- Botón que cambiará el color del texto a rojo -->
+    <input type="button" value="Azul" id="azul"> <!-- Botón que cambiará el color del texto a azul -->
+    <input type="button" value="Grande" id="grande"> <!-- Botón que aumentará el tamaño del texto a 80px -->
+    <input type="button" value="Pequeño" id="pequeno"> <!-- Botón que reducirá el tamaño del texto a 10px -->
+    <input type="button" value="Original" id="original"> <!-- Botón que restaurará el tamaño del texto a 32px -->
+</body>
+</html>

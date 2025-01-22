@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Show/Hide</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!---Haz que un elemento con id #contenedor se muestre u oculte cuando se haga un
+scroll en la página.-->
+    <style>
+        #contenedor {
+            display: none; /* Ocultar por defecto */
+            background-color: lightblue;
+            padding: 20px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        body {
+            height: 2000px; /* Solo para permitir el scroll */
+        }
+    </style>
+</head>
+<body>
+
+<div id="contenedor">¡Hola! Soy un contenedor.</div>
+
+<script>
+$(document).ready(function() {
+    var lastScrollTop = 0;
+
+    $(window).scroll(function() {
+        var st = $(this).scrollTop();
+        
+        if (st > lastScrollTop) {
+            // Scroll hacia abajo
+            $('#contenedor').fadeIn();
+        } else {
+            // Scroll hacia arriba
+            $('#contenedor').fadeOut();
+        }
+        lastScrollTop = st;
+    });
+});
+</script>
+
+</body>
+</html>

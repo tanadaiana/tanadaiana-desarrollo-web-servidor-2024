@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Haz que una imagen con id #foto se mueva con el ratón dentro de un contenedor
+con id #area-->
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimiento de Imagen</title>
+    <style>
+        #area {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        #foto {
+            width: 50px; /* Ajusta el tamaño de la imagen según sea necesario */
+            position: absolute;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="area">
+        <img id="foto" src="ruta/a/tu/imagen.jpg" alt="Imagen">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#area').mousemove(function(event) {
+                var areaOffset = $(this).offset(); // Obtener la posición del contenedor
+                var x = event.pageX - areaOffset.left; // Calcular la posición X dentro del contenedor
+                var y = event.pageY - areaOffset.top; // Calcular la posición Y dentro del contenedor
+
+                // Ajustar la posición de la imagen
+                $('#foto').css({
+                    left: x,
+                    top: y
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>

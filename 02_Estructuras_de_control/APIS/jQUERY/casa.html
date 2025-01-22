@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ejercicios de jQuery</h1>
+
+<!-- Ejercicio 1: Mostrar y ocultar un elemento -->
+<div>
+    <button id="toggleBtn">Mostrar/Ocultar</button>
+    <div id="toggleDiv" style="display:none;">¡Hola, mundo!</div>
+</div>
+<script>
+    // Alterna la visibilidad del div al hacer clic
+    $('#toggleBtn').click(function () {
+        $('#toggleDiv').toggle();
+    });
+</script>
+
+<!-- Ejercicio 2: Cambiar color al hacer clic -->
+<div>
+    <button id="colorBtn">Cambiar Color</button>
+    <p id="colorP">Este párrafo cambiará de color</p>
+</div>
+<script>
+    // Cambia el color del texto al azul
+    $('#colorBtn').click(function () {
+        $('#colorP').css('color', 'blue');
+    });
+</script>
+
+<!-- Ejercicio 3: Animar un cuadro -->
+<div>
+    <button id="moveBtn">Mover Cuadro</button>
+    <div id="moveDiv" class="box"></div>
+</div>
+<script>
+    // Mueve el cuadro hacia la derecha
+    $('#moveBtn').click(function () {
+        $('#moveDiv').animate({ left: '200px' }, 1000);
+    });
+</script>
+
+<!-- Ejercicio 4: Fade In y Fade Out -->
+<div>
+    <div id="fadeDiv" class="box" style="background:green;"></div>
+</div>
+<script>
+    // Aplica fade out y luego fade in al pasar el ratón
+    $('#fadeDiv').hover(
+        function () {
+            $(this).fadeOut(1000);
+        },
+        function () {
+            $(this).fadeIn(1000);
+        }
+    );
+</script>
+
+<!-- Ejercicio 5: Cambiar el tamaño de un elemento -->
+<div>
+    <button id="resizeBtn">Cambiar Tamaño</button>
+    <div id="resizeDiv" class="box" style="background:purple;"></div>
+</div>
+<script>
+    // Incrementa el tamaño del div
+    $('#resizeBtn').click(function () {
+        $('#resizeDiv').animate({ width: '200px', height: '200px' }, 1000);
+    });
+</script>
+
+<!-- Ejercicio 6: Mostrar un mensaje con slide -->
+<div>
+    <button id="slideBtn">Mostrar/Ocultar Mensaje</button>
+    <div id="slideDiv" class="hidden">¡Mensaje deslizante!</div>
+</div>
+<script>
+    // Alterna el mensaje deslizante
+    $('#slideBtn').click(function () {
+        $('#slideDiv').slideToggle();
+    });
+</script>
+
+<!-- Ejercicio 7: Agregar y quitar clases -->
+<div>
+    <button id="classBtn">Cambiar Estilo</button>
+    <p id="classP" class="normal">Este párrafo cambiará de estilo</p>
+</div>
+<style>
+    .normal { color: black; }
+    .highlight { color: red; font-size: 20px; }
+</style>
+<script>
+    // Alterna la clase del párrafo
+    $('#classBtn').click(function () {
+        $('#classP').toggleClass('highlight');
+    });
+</script>
+
+<!-- Ejercicio 8: Formulario interactivo -->
+<div>
+    <input type="text" id="inputField" placeholder="Escribe algo">
+    <button id="submitBtn">Enviar</button>
+    <div id="output"></div>
+</div>
+<script>
+    // Muestra el valor ingresado en el campo de texto
+    $('#submitBtn').click(function () {
+        const value = $('#inputField').val();
+        $('#output').text(`Ingresaste: ${value}`);
+    });
+</script>
+
+<!-- Ejercicio 9: Mostrar un tooltip(caja de texto que aparece cuando el usuario pasa el ratón sobre un elemento.) al pasar el ratón -->
+<div>
+    <button id="tooltipBtn">Pasa el ratón aquí</button>
+    <div id="tooltip" style="display:none; position:absolute; background:yellow;">Esto es un tooltip</div>
+</div>
+<script>
+    // Muestra un tooltip al pasar el ratón sobre el botón
+    $('#tooltipBtn').hover(
+        function (e) {
+            $('#tooltip').css({ top: e.pageY + 10, left: e.pageX + 10 }).fadeIn();
+        },
+        function () {
+            $('#tooltip').fadeOut();
+        }
+    );
+</script>
+
+<!-- Ejercicio 10: Cargar contenido dinámico -->
+<div>
+    <button id="loadDataBtn">Cargar Contenido</button>
+    <div id="dataDiv"></div>
+</div>
+<script>
+    // Carga contenido dinámico desde una URL de ejemplo
+    $('#loadDataBtn').click(function () {
+        $.get('https://jsonplaceholder.typicode.com/posts/1', function (data) {
+            $('#dataDiv').html(`<h2>${data.title}</h2><p>${data.body}</p>`);
+        });
+    });
+</script>
+
+</body>
+</html>

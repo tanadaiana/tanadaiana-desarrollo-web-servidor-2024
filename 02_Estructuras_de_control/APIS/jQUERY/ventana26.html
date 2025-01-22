@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación al cerrar ventana</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Detecta cuando la ventana está a punto de cerrarse y muestra un mensaje de confirmación-->
+</head>
+<body>
+    <h1>Prueba de cierre de ventana</h1>
+    <script>
+        $(window).on('beforeunload', function() {
+            return "¿Estás seguro de que quieres salir de esta página?";
+        });
+    </script>
+</body>
+</html>

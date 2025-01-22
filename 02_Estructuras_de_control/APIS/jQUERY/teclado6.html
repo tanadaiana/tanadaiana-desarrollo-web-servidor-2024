@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar fondo de campo de texto</title>
+    <style>
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <!-- Incluye jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="campoTexto" placeholder="Presiona Tab aquí">
+
+    <script>
+        $(document).ready(function() {
+            $('#campoTexto').keydown(function(event) {
+                if (event.key === 'Tab') {
+                    $(this).css('background-color', 'yellow');
+                }
+            });
+
+            $('#campoTexto').blur(function() {
+                $(this).css('background-color', ''); // Restablecer el color cuando pierde el foco
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./asset/jquery-3.7.1.min.js"></script> 
+</head>
+<body>
+    <script>
+   /* #ejerircicio 1-Detecta cuando se presiona la tecla "Enter" en un <input> y muestra un mensaje en
+    la consola.*/ 
+    $('input[type="button"]').on('click', function() {  // Cuando el botón de tipo "button" es clickeado
+    alert('¡Hola, has presionado el botón!');  // Muestra un cuadro de alerta con el mensaje
+
+   /* #2 ejercicio 2-Muestra un mensaje cada vez que el usuario escriba en un campo de texto con id
+    #inputTexto.*/
+    <form>
+       <input type="Text" name="camposelector" id="camposelector">  <!-- Campo de texto donde el usuario escribe un selector de jQuery -->
+      <input type="button" id="boton" value="Ver qué elementos seleccionas">  <!-- Botón que ejecuta la acción al ser presionado -->
+   </form>
+
+   /*ejercicio3 3-Imprime en la consola el código de la tecla presionada en un campo de texto.*/
+   // $('input[type="button"]') selecciona todos los elementos <input> de tipo 'button'
+            $('input[type="button"]').on("click",function () {
+                // $(this).val() obtiene el valor del botón que fue clickeado.
+                let contenido=$(this).val();
+
+                // $('#texto') selecciona el campo de texto con id 'texto'.
+                // .val(contenido) establece el valor del campo de texto al valor del botón que fue clickeado.
+                $('#texto').val(contenido);  
+
+
+
+});
+</script>
+</body>
+</html>
