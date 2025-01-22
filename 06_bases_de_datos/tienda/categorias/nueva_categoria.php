@@ -18,6 +18,10 @@
             header("location: ../usuario/iniciar_sesion.php"); // Redirige si el usuario no está autenticado
             exit;
         }
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 ); 
+        
+        require('../util/conexion.php');
     ?>
 </head>
 <body>

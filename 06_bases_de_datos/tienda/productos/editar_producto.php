@@ -20,12 +20,17 @@
             $salida = trim(htmlspecialchars($cadena));
             $salida = preg_replace('/\s+/', ' ', $salida);
             return $salida;
+    ?>
+    <style>
+        .table-primary{
+            --bs-table-color-state:green;
+            --bs-table-bg:beige;
         }
-        
-        // Verificar si el usuario está logueado
+        <?php
+        //Verificar si el usuario está logueado
         session_start();
         if (!isset($_SESSION["usuario"])) {
-            header("location: ../usuario/iniciar_sesion.php"); // Si no está logueado, redirigir
+            header("location: ../usuario/iniciar_sesion.php"); //Si no está logueado, redirigir
             exit;
         }
 

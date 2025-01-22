@@ -22,6 +22,10 @@
         header("location: ../usuario/iniciar_sesion.php");
         exit; // Asegura que el script no continúe ejecutándose
     }
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 ); 
+        
+        require('../util/conexion.php');
     ?>
 </head>
 <body>
@@ -71,42 +75,34 @@
             </thead>
             <tbody>
                 <?php
-                // Itera a través de cada fila del resultado de la consulta
-                while ($fila = $resultado->fetch_assoc()) {
-                    echo "<tr>";
-                    // Muestra el nombre del producto
-                    echo "<td>" . $fila["nombre"] . "</td>";
-                    // Muestra el precio del producto
-                    echo "<td>" . $fila["precio"] . "</td>";
-                    // Muestra la categoría del producto
-                    echo "<td>" . $fila["categoria"] . "</td>";
-                    // Muestra el stock del producto
-                    echo "<td>" . $fila["stock"] . "</td>";
-                    ?>
-                    <td>
-                        <!-- Muestra la imagen del producto -->
-                        <img width="100" height="160" src="<?php echo "../" . $fila["imagen"] ?>">
-                    </td>
-                    <?php
-                    // Muestra la descripción del producto
-                    echo "<td>" . $fila["descripcion"] . "</td>";
-                    ?>
-                    <td>
-                        <!-- Botón para redirigir a la página de edición del producto -->
-                        <a class="btn btn-primary btn-sm" href="editar_producto.php?id_producto=<?php echo $fila['id_producto'] ?>">Editar</a>
-                    </td>
-                    <td>
-                        <!-- Formulario para eliminar el producto -->
-                        <form action="" method="post">
-                            <!-- Campo oculto para pasar el ID del producto -->
-                            <input type="hidden" name="id_producto" value="<?php echo $fila['id_producto']; ?>">
-                            <!-- Botón para confirmar la eliminación -->
-                            <input class="btn btn-danger btn-sm" type="submit" value="Borrar">
-                        </form>
-                    </td>
-                    <?php
-                    echo "</tr>"; // Cierra la fila de la tabla
-                }
+                    while($fila = $resultado -> fetch_assoc()) {
+                        // ["titulo"=>"Frieren","nombre_estudio"="Pierrot"...]
+                        echo "<tr>";
+                        echo "<td>" . $fila["id_producto"] . "</td>";
+                        echo "<td>" . $fila["nombre"] . "</td>";
+                        echo "<td>" . $fila["precio"] . "</td>";
+                        echo "<td>" . $fila["categoria"] . "</td>";
+                        echo "<td>" . $fila["stock"] . "</td>";
+                        echo "<td>" . $fila["descripcion"] . "</td>";
+                        echo "<td>" . $fila["imagen"] . "</td>";
+                        
+                        ?>
+                        <td>
+                            <img width="50" heigth="80" src="<?php echo $fila["imagen"] ?>">
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" 
+                               href="editar_producto.php?id_producto=<?php echo $fila["id_producto"] ?>">Editar</a>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <input type="hidden" name="id_producto" value="<?php echo $fila["id_producto"] ?>">
+                                <input class="btn btn-danger" type="submit" value="Borrar">
+                            </form>
+                        </td>
+                        <?php
+                        echo "</tr>";
+                    }
                 ?>
             </tbody>
         </table>

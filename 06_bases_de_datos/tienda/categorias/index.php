@@ -53,9 +53,14 @@ $resultado = $_conexion->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorías</title>
-    <!-- Bootstrap para los estilos visuales -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <?php
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 ); 
+        
+        require('../util/conexion.php');
+    ?>
     <style>
         .table-primary {
             --bs-table-bg: #b0008e; /* Color de fondo personalizado */
@@ -98,7 +103,38 @@ $resultado = $_conexion->query($sql);
                     <?php
                     echo "</tr>";
                 }
+                    while($fila = $resultado -> fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $fila["nombre"] . "</td>";
+                        echo "<td>" . $fila["fabricante"] . "</td>";
+                        echo "<td>" . $fila["generacion"] . "</td>";
+                        if($fila["unidades_vendidas"] === NULL) {
+                            echo "<td>No hay datos</td>";
+                        } else {
+                            echo "<td>" . $fila["unidades_vendidas"] . "</td>";
+                        } 
+                        ?>
+                        <td>
+                            <img width="50" heigth="80" src="<?php echo $fila["imagen"] ?>">
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" 
+                               href="editar_anime.php?id_anime=<?php echo $fila["id_anime"] ?>">Editar</a>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <input type="hidden" name="id_anime" value="<?php echo $fila["id_anime"] ?>">
+                                <input class="btn btn-danger" type="submit" value="Borrar">
+                            </form>
+                        </td>
+                        <?php
+
+                        echo "</tr>";
+                    }
                 ?>
+                   
+
+                
             </tbody>
         </table>
     </div>
