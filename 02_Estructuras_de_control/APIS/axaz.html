@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo AJAX con $.get()</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <button id="cargarDatos">Cargar Datos</button>
+  <div id="resultado"></div>
+
+  <script>
+    // Cuando el usuario haga clic en el botón
+    $('#cargarDatos').click(function () {
+      // Usamos $.get para obtener datos de un archivo o API
+      $.get('https://jsonplaceholder.typicode.com/posts/1', function (data) {
+        // Mostramos los datos en el div
+        $('#resultado').html(`<h2>${data.title}</h2><p>${data.body}</p>`);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -74,6 +74,7 @@
              //Ejercicio 1: Añadir dos lineas de autobús
              $nuevo_autobus = ["Málaga", "Madrid", 360, 17.5];
              array_push($autobuses, $nuevo_autobus);
+
  
             //creo un foreach de autobuses
             foreach($autobuses as $autobus){
@@ -194,6 +195,13 @@
 
             //COMO BORRAR UNA FILA
             //unset($autobuses[1];) => me acrgo la fila entera
+            
+
+            //borra y reordenar con el value
+
+            unset($frutas3[1]); //Elimina el cajon 1.
+            $frutas3 = array_values($frutas3);
+        
 
 
  
