@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <?php
         error_reporting( E_ALL );
         ini_set( "display_errors", 1 ); 
         
-        require('conexion.php');  //Conexión a la base de datos:Importa un archivo externo,ES COMO EL IMPORTA DE JAVA ,SINO NO SE CONECTA 
+        require('conexion.php');
+
+        session_start();
+        if(!isset($_SESSION["usuario"])) {
+            header("location: usuarios/iniciar_sesion.php");
+            exit;
+        }
     ?>
     <style>
         .table-primary {
@@ -19,35 +25,21 @@
     </style>
 </head>
 <body>
-    <!--El archivo index.php es la página principal del sistema. Realiza las siguientes funciones:
-        Conexión a la base de datos:
-        Eliminar animes:
-        consultar y mostrar animes:
-        Agregar nuevos animes:
-        Interactividad:
-        Permite al usuario ver la lista completa de animes.
-      Ofrece un botón para borrar cualquier anime,-->
-
     <div class="container">
+        <h2>Bienvenid@ <?php echo $_SESSION["usuario"] ?></h2>
+        <a class="btn btn-danger" href="usuarios/iniciar_sesion.php">Cerrar sesión</a>
         <h1>Listado de animes</h1>
         <?php
-        // Bloque para manejar la eliminación de un anime
-
             if($_SERVER["REQUEST_METHOD"] == "POST") {
-                $id_anime = $_POST["id_anime"];  //Si se cumple, obtiene el id_anime desde los datos enviados:
+                $id_anime = $_POST["id_anime"];
                 //echo "<h1>$id_anime</h1>";
-                $sql = "DELETE FROM animes WHERE id_anime = '$id_anime'";  //Crea una consulta SQL para eliminar el anime con ese id_anime:
+                $sql = "DELETE FROM animes WHERE id_anime = '$id_anime'";
                 $_conexion -> query($sql);
             }
 
-            // 
-            // Consulta para obtener todos los animes
-         //Guarda los resultados de la consulta en la variable $resultado.
-            // Esto permite acceder a todos los datos de los animes para mostrarlos en la página.
             $sql = "SELECT * FROM animes";
             $resultado = $_conexion -> query($sql);
         ?>
-        <!-- Botón para agregar un nuevo anime-->
         <a class="btn btn-secondary" href="nuevo_anime.php">Nuevo anime</a><br><br>
         <table class="table table-striped">
             <thead class="table-primary">
@@ -58,13 +50,11 @@
                     <th>Número de temporadas</th>
                     <th>Imagen</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                // Llenado dinámico de la tabla
-                //Recorre cada registro obtenido de la consulta SQL ($resultado).
-                //Cada fila de la base de datos se convierte en un array asociativo accesible mediante $fila['columna'].
                     while($fila = $resultado -> fetch_assoc()) {
                         // ["titulo"=>"Frieren","nombre_estudio"="Pierrot"...]
                         echo "<tr>";
@@ -74,18 +64,13 @@
                         echo "<td>" . $fila["num_temporadas"] . "</td>";
                         ?>
                         <td>
-                            <!--Muestra la imagen asociada al anime.
-                             El atributo src utiliza el valor de la columna imagen (que almacena la ruta de la imagen).-->
                             <img width="50" heigth="80" src="<?php echo $fila["imagen"] ?>">
                         </td>
                         <td>
-                            <!--Muestra un botón "Borrar" dentro de un formulario.
-                    Utiliza un campo oculto 
-                (<input type="hidden">) para enviar el id_anime 
-                correspondiente al anime que el usuario quiere eliminar.
-            Cuando el usuario presiona el botón, el formulario se envía como un POST,
-             y se ejecuta el código de eliminación al inicio del archivo.-->
-
+                            <a class="btn btn-primary" 
+                               href="editar_anime.php?id_anime=<?php echo $fila["id_anime"] ?>">Editar</a>
+                        </td>
+                        <td>
                             <form action="" method="post">
                                 <input type="hidden" name="id_anime" value="<?php echo $fila["id_anime"] ?>">
                                 <input class="btn btn-danger" type="submit" value="Borrar">
@@ -98,6 +83,6 @@
             </tbody>
         </table>
     </div>
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
