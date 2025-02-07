@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Visibility Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+    <style>
+        #toggleDiv {
+            width: 300px;
+            height: 150px;
+            background-color: lightblue;
+            color: darkblue;
+            text-align: center;
+            line-height: 150px;
+            margin: 20px auto;
+            border: 2px solid darkblue;
+        }
+
+        #toggleButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #toggleButton:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+ <!--Usa el método toggle() para alternar la visibilidad de un elemento al hacer clic-->
+<body>
+    <button id="toggleButton">Mostrar/Ocultar</button>
+    <div id="toggleDiv">¡Este es el contenido que se alterna!</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#toggleButton").on("click", function () {
+                $("#toggleDiv").toggle(); // Alterna la visibilidad del <div>
+            });
+        });
+    </script>
+</body>
+</html>

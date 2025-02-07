@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Fondo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Elementos con la clase .producto -->
+    <div class="producto">Producto 1</div>
+    <div class="producto">Producto 2</div>
+    <div class="producto">Producto 3</div>
+
+    <!-- Botón para cambiar el color de fondo -->
+    <button id="cambiarColor">Cambiar Color de Fondo</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se hace clic en el botón, cambiar el color de fondo del primer elemento con la clase .producto
+            $("#cambiarColor").click(function () {
+                $(".producto:first").css("background-color", "blue");
+                //FIRST:primer elemento
+            });
+        });
+    </script>
+
+</body>
+</html>

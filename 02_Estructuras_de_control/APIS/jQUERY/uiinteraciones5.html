@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectable en jQuery UI</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" hresf="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--Usa el widget selectable para permitir seleccionar varios elementos de una
+lista.-->
+    <style>
+        ul#selectable {
+            list-style-type: none;
+            padding: 0;
+            width: 200px;
+        }
+        ul#selectable li {
+            margin: 3px;
+            padding: 5px;
+            background-color: lightblue;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        ul#selectable li.ui-selected {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lista de elementos seleccionables -->
+    <ul id="selectable">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
+    </ul>
+
+    <script>
+        $(document).ready(function () {
+            // Aplicar el widget selectable a la lista
+            $("#selectable").selectable();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redimensionable Solo Verticalmente</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!---Haz que un <div> sea resizable solo verticalmente-->
+    <style>
+        #resizable {
+            width: 200px;
+            height: 150px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 150px;
+            font-size: 20px;
+            border: 2px solid #ccc;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Div que será redimensionable solo verticalmente -->
+    <div id="resizable">¡Redimensiona solo verticalmente!</div>
+
+    <script>
+        $(document).ready(function () {
+            // Hacer el div redimensionable solo verticalmente
+            $("#resizable").resizable({
+                handles: "n, s"  // Permite redimensionar solo en las direcciones norte (arriba) y sur (abajo)
+            });
+        });
+    </script>
+
+</body>
+</html>

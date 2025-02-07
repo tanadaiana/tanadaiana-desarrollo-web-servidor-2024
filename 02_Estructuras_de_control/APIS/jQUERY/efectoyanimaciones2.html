@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <style>
+        .oculto {
+            display: none;
+            width: 300px;
+            padding: 15px;
+            background-color: lightgreen;
+            color: darkgreen;
+            border: 2px solid green;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+  <!--Haz que un elemento con clase .oculto se muestre con una animación (fadeIn)
+cuando se haga clic en un botón-->
+<body>
+    <button id="showButton">Mostrar elemento</button>
+    <div class="oculto">¡Este es el elemento oculto que aparece con animación!</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#showButton").on("click", function () {
+                $(".oculto").fadeIn("slow"); // Cambia "slow" por "fast" o un tiempo en milisegundos como 1000
+            });
+        });
+    </script>
+</body>
+</html>

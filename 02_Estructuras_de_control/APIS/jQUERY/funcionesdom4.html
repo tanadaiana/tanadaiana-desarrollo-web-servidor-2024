@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Fondo del Segundo Div</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Selecciona el segundo <div> en el documento y cámbiale el fondo a amarillo-->
+</head>
+<body>
+
+    <!-- Primer div -->
+    <div>Primer div</div>
+
+    <!-- Segundo div -->
+    <div>Segundo div</div>
+
+    <!-- Tercer div -->
+    <div>Tercer div</div>
+
+    <script>
+        $(document).ready(function () {
+            // Seleccionamos el segundo <div> usando :nth-of-type(2) y cambiamos su fondo a amarillo
+            $("div:nth-of-type(2)").css("background-color", "yellow");
+        });
+    </script>
+
+</body>
+</html>

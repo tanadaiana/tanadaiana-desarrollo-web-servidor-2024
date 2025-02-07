@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Establecer Atributo data-id</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Establece un atributo data-id en todos los elementos con la clase .producto-->
+</head>
+<body>
+
+    <!-- Elementos con la clase .producto -->
+    <div class="producto">Producto 1</div>
+    <div class="producto">Producto 2</div>
+    <div class="producto">Producto 3</div>
+
+    <script>
+        $(document).ready(function () {
+            // Establecer un atributo data-id en todos los elementos con la clase .producto
+            $(".producto").attr("data-id", function(index) {
+                return index + 1; // Asignamos un valor único basado en el índice (1, 2, 3, ...)
+            });
+        });
+    </script>
+
+</body>
+</html>

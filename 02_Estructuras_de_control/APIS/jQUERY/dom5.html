@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Tamaño de Fuente</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Accede a todos los elementos <p> en la página y cambia su tamaño de fuente a
+18px-->
+</head>
+<body>
+
+    <!-- Varios párrafos <p> -->
+    <p>Este es el primer párrafo.</p>
+    <p>Este es el segundo párrafo.</p>
+    <p>Este es el tercer párrafo.</p>
+
+    <script>
+        $(document).ready(function () {
+            // Seleccionamos todos los elementos <p> y cambiamos su tamaño de fuente a 18px
+            $("p").css("font-size", "18px");
+        });
+    </script>
+
+</body>
+</html>

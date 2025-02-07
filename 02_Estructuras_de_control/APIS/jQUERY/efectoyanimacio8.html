@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Deslizamiento de Texto</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!---Haz que un texto se deslice de izquierda a derecha usando show() y hide()-->
+        <style>
+            #miTexto {
+                display: none; /* Comenzamos oculto */
+                position: relative; /* Necesario para el desplazamiento */
+            }
+        </style>
+    </head>
+    <body>
+    
+    <button id="toggle">Mostrar/Ocultar Texto</button>
+    <div id="miTexto">¡Texto deslizable!</div>
+    
+    <script>
+    $(document).ready(function() {
+        $("#toggle").click(function() {
+            if ($("#miTexto").is(":visible")) {
+                // Si el texto es visible, deslízalo hacia la izquierda y ocúltalo
+                $("#miTexto").animate({ left: "-=200px", opacity: 0 }, 500, function() {
+                    $(this).hide(); // Ocultar después de la animación
+                    $(this).css({ left: "0", opacity: 1 }); // Resetear estilos
+                });
+            } else {
+                // Si el texto no es visible, muéstralo y deslízalo hacia la derecha
+                $("#miTexto").css({ left: "0" }).show(); // Asegúrate de que esté en su posición original
+                $("#miTexto").animate({ left: "+=200px", opacity: 1 }, 500);
+            }
+        });
+    });
+    </script>
+    
+    </body>
+    </html>
+    

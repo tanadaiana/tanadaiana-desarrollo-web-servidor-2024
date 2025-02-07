@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade Effect on Hover</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Aplica un efecto de desvanecimiento al pasar el ratón sobre una imagen-->
+    <style>
+        img {
+            width: 300px;
+            height: auto;
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://via.placeholder.com/300" alt="Placeholder Image" id="hoverImage">
+
+    <script>
+        $(document).ready(function () {
+            $("#hoverImage").on("mouseenter", function () {
+                $(this).fadeTo("fast", 0.5); // Reduce la opacidad al 50%
+            });
+
+            $("#hoverImage").on("mouseleave", function () {
+                $(this).fadeTo("fast", 1); // Vuelve a la opacidad completa
+            });
+        });
+    </script>
+</body>
+</html>

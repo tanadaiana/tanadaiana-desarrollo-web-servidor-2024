@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Fondo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Selecciona todos los <span> dentro de un <div> con id #contenedor y cambia su
+color de fondo a gris-->
+</head>
+<body>
+
+    <!-- Contenedor con id #contenedor -->
+    <div id="contenedor">
+        <span>Primer span</span>
+        <span>Segundo span</span>
+        <span>Tercer span</span>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Seleccionamos todos los <span> dentro del <div> con id #contenedor y cambiamos su color de fondo a gris
+            $("#contenedor span").css("background-color", "gray");
+        });
+    </script>
+
+</body>
+</html>

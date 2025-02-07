@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceder al Contenido</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Accede al contenido del elemento con id #descripcion y muestra el valor en
+consola-->
+</head>
+<body>
+
+    <!-- Elemento con el id #descripcion -->
+    <div id="descripcion">Este es el contenido del elemento con id 'descripcion'.</div>
+
+    <!-- Botón para acceder al contenido -->
+    <button id="mostrarContenido">Mostrar Contenido</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se hace clic en el botón, acceder al contenido del elemento con id #descripcion y mostrarlo en la consola
+            $("#mostrarContenido").click(function () {
+                var contenido = $("#descripcion").text(); // Accedemos al texto del elemento
+                console.log(contenido); // Mostramos el contenido en la consola
+            });
+        });
+    </script>
+
+</body>
+</html>

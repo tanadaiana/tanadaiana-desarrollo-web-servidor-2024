@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Nuevo Párrafo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!---Inserta un nuevo párrafo al principio del <body> con el texto "Bienvenido".-->
+</head>
+<body>
+
+    <h1>Título de la Página</h1>
+    <p>Este es un párrafo ya existente en el cuerpo.</p>
+
+    <script>
+        $(document).ready(function () {
+            // Insertamos un nuevo párrafo al principio del <body> con el texto "Bienvenido"
+            $("body").prepend("<p>Bienvenido</p>");
+            $(document).ready(function() {
+   // $("body").prepend("<form><input type='text' placeholder='Ingresa tu nombre' /><input type='submit' value='Enviar' /></form>"); //agrega un formularip
+});
+        });
+    </script>
+
+</body>
+</html>

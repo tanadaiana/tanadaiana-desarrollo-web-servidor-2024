@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desplazamiento suave</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <style>
+        #container {
+            height: 1500px; /* Para tener suficiente espacio para hacer scroll */
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        #moveDiv {
+            width: 200px;
+            height: 100px;
+            background-color: lightcoral;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px auto;
+            border: 2px solid darkred;
+        }
+
+        #moveButton {
+            padding: 10px 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #moveButton:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+  <!--Haz que un <div> se desplace suavemente a una posición específica en la página-->
+<body>
+
+    <button id="moveButton">Mover Div</button>
+    <div id="moveDiv">¡Mueve este div!</div>
+    <div id="container">
+        <!-- Contenido adicional para crear más espacio -->
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#moveButton").on("click", function () {
+                // Desplazar el div a una posición específica, por ejemplo, 500px desde el top
+                $("#moveDiv").animate({
+                    top: "500px"  // Desplaza el div 500px hacia abajo desde la parte superior
+                }, 1000);  // 1000ms = 1 segundo para la animación
+            });
+        });
+    </script>
+</body>
+</html>

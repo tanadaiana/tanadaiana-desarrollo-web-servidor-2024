@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrastrar y Soltar con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   
+    <style>
+        #container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        #source, #target {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            line-height: 200px;
+            font-size: 20px;
+        }
+
+        #source {
+            background-color: lightgreen;
+        }
+
+        #target {
+            background-color: lightblue;
+        }
+
+        #draggableElement {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+ <!--Crea un efecto de arrastrar y soltar (draggable y droppable) entre dos
+elementos-->
+<body>
+
+    <div id="container">
+        <div id="source">
+            <div id="draggableElement">Arrástrame</div>
+        </div>
+
+        <div id="target">
+            Soltar aquí
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Hacer el div draggable (arrastrable)
+            $("#draggableElement").draggable();
+
+            // Hacer que el área de destino sea droppable (donde se puede soltar)
+            $("#target").droppable({
+                accept: "#draggableElement",  // Acepta solo el elemento con id #draggableElement
+                drop: function (event, ui) {
+                    // Cambiar el texto del área objetivo al soltar el elemento
+                    $(this).text("¡Elemento soltardo!");
+                    // Mover el elemento arrastrado al área de destino
+                    ui.helper.appendTo($(this));  // Mueve el elemento dentro del área
+                    ui.helper.css({
+                        top: 0,
+                        left: 0,
+                        position: 'relative'  // Asegura que el elemento se quede dentro del área de destino
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

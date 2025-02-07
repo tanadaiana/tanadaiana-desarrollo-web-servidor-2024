@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Borde Rojo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Añade un borde rojo a todos los elementos <h1> dentro de un <div>-->
+</head>
+<body>
+
+    <!-- Contenedor con varios <h1> -->
+    <div id="contenedor">
+        <h1>Título 1</h1>
+        <h1>Título 2</h1>
+        <h1>Título 3</h1>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Seleccionamos todos los <h1> dentro del <div> y les agregamos un borde rojo
+            $("#contenedor h1").css("border", "2px solid red");
+        });
+    </script>
+
+</body>
+</html>

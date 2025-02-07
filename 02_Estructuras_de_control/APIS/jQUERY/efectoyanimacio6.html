@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Animation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .animado {
+            width: 300px;
+            height: 150px;
+            background-color: lightblue;
+            border: 2px solid blue;
+            text-align: center;
+            line-height: 150px;
+            margin: 20px auto;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+    <!--Haz que el color de fondo de un <div> cambie de manera animada cuando se pase el
+ratón sobre él-->
+<body>
+    <div class="animado">Pasa el ratón por aquí</div>
+
+    <script>
+        $(document).ready(function () {
+            $(".animado").hover(
+                function () {
+                    // Animar el color de fondo al pasar el ratón
+                    $(this).animate({ backgroundColor: "#green" }, 500);
+                },
+                function () {
+                    // Restaurar el color de fondo al quitar el ratón
+                    $(this).animate({ backgroundColor: "red" }, 500);
+                }
+            );
+        });
+    </script>
+</body>
+</html>

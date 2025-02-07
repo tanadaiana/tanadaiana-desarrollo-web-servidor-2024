@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Up Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!---->
+    <style>
+        p {
+            width: 300px;
+            padding: 10px;
+            background-color: lightcoral;
+            color: white;
+            border: 1px solid darkred;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">Este es un párrafo que se deslizará hacia arriba cuando hagas clic en el botón.</p>
+    <button id="slideButton">Deslizar hacia arriba</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#slideButton").on("click", function () {
+                $("#text").slideUp("slow"); // Puedes reemplazar "slow" por "fast" o un tiempo en milisegundos
+            });
+        });
+    </script>
+</body>
+</html>

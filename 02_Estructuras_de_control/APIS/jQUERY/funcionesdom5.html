@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Clase Activo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Añade un class llamado activo a todos los <a> dentro de un <nav>.-->
+    <style>
+        .activo {
+            color: red; /* Cambia el color del texto de los enlaces con la clase 'activo' */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Elemento <nav> con varios enlaces <a> -->
+    <nav>
+        <a href="#">Enlace 1</a>
+        <a href="#">Enlace 2</a>
+        <a href="#">Enlace 3</a>
+    </nav>
+
+    <script>
+        $(document).ready(function () {
+            // Seleccionamos todos los <a> dentro del <nav> y les añadimos la clase 'activo'
+            $("nav a").addClass("activo");
+        });
+    </script>
+
+</body>
+</html>

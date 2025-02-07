@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Soltado con jQuery UI</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        #contenedor {
+            width: 300px;
+            height: 300px;
+            border: 2px dashed #ccc;
+            margin: 20px;
+        }
+        .draggable {
+            width: 100px;
+            height: 100px;
+            background-color: #f39c12;
+            cursor: move;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="draggable" id="elemento">Arrástrame</div>
+<div id="contenedor">Suelta aquí</div>
+s
+<script>
+$(function() {
+    // Hacemos el elemento draggable
+    $("#elemento").draggable();
+
+    // Convertimos el contenedor en un área de soltado
+    $("#contenedor").droppable({
+        drop: function(event, ui) {
+            // Acción a realizar cuando se suelta el elemento
+            alert("Elemento soltado en el área!");
+            // También puedes agregar el elemento soltado al contenedor
+            $(this).append(ui.draggable);
+            ui.draggable.position({ 
+                of: $(this), 
+                my: 'left top', 
+                at: 'left top' 
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+

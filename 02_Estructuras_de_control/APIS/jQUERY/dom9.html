@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Elementos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Elimina todos los elementos con la clase .eliminar-->
+</head>
+<body>
+
+    <!-- Elementos con la clase .eliminar -->
+    <div class="eliminar">Elemento 1</div>
+    <div class="eliminar">Elemento 2</div>
+    <div class="eliminar">Elemento 3</div>
+    <div>Este elemento no será eliminado</div>
+
+    <!-- Botón para eliminar los elementos con la clase .eliminar -->
+    <button id="eliminarElementos">Eliminar Elementos</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se hace clic en el botón, eliminar todos los elementos con la clase .eliminar
+            $("#eliminarElementos").click(function () {
+                $(".eliminar").remove(); // Elimina todos los elementos con la clase .eliminar
+            });
+        });
+    </script>
+
+</body>
+</html>

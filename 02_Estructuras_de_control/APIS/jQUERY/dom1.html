@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Texto de un Elemento</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Selecciona el elemento con la clase .item y cámbiale el texto-->
+</head>
+<body>
+
+    <!-- Elemento con la clase .item -->
+    <div class="item">Texto original</div>
+    
+    <!-- Botón para cambiar el texto -->
+    <button id="cambiarTexto">Cambiar Texto</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se hace clic en el botón, cambiar el texto del elemento con clase .item
+            $("#cambiarTexto").click(function () {
+                $(".item").text("¡Texto cambiado!");
+            });
+        });
+    </script>
+
+</body>
+</html>

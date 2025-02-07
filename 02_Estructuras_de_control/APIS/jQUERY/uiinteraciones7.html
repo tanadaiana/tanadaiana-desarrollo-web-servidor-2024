@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Arrastre con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!---Convierte un elemento en un área de arrastre con el widget draggable-->
+    <style>
+        #draggableArea {
+            width: 200px;
+            height: 150px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 150px;
+            font-size: 20px;
+            border: 2px solid #ccc;
+            margin: 50px;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Div que será el área de arrastre -->
+    <div id="draggableArea">Arrástrame</div>
+
+    <script>
+        $(document).ready(function () {
+            // Hacer el div arrastrable
+            $("#draggableArea").draggable();
+        });
+    </script>
+
+</body>
+</html>

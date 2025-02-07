@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        .cuadro {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 20px;
+        }
+    </style>
+</head>
+<!--Haz que un <div> con clase .cuadro se desvanezca (fade) cuando se haga clic en un
+botón con id #fadeButton-->
+<body>
+    <div class="cuadro"></div>
+    <button id="fadeButton">Fade Out</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#fadeButton").on("click", function () {
+                $(".cuadro").fadeOut(); // Cambia "slow" por un número en milisegundos si quieres controlar el tiempo
+            });
+        });
+    </script>
+</body>
+</html>

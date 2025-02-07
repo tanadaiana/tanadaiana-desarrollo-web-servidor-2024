@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Valor de Input</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Cambiar el valor de un <input> con id #nombre a "Juan Pérez"-->
+</head>
+<body>
+
+    <!-- Input con id 'nombre' -->
+    <input type="text" id="nombre" value="">
+
+    <!-- Botón para cambiar el valor del input -->
+    <button id="cambiarNombre">Cambiar Nombre</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se haga clic en el botón, cambiamos el valor del input
+            $("#cambiarNombre").click(function () {
+                $("#nombre").val("Juan Pérez"); // Cambia el valor del input a "Juan Pérez"
+            });
+        });
+    </script>
+
+</body>
+</html>

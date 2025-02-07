@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocultar Elementos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Selecciona todos los elementos con la clase .foto y ocúltalos-->
+</head>
+<body>
+
+    <!-- Elementos con la clase .foto -->
+    <img class="foto" src="https://via.placeholder.com/150" alt="Imagen 1">
+    <img class="foto" src="https://via.placeholder.com/150" alt="Imagen 2">
+    <img class="foto" src="https://via.placeholder.com/150" alt="Imagen 3">
+
+    <!-- Botón para ocultar los elementos con la clase .foto -->
+    <button id="ocultarFotos">Ocultar Fotos</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se hace clic en el botón, ocultamos todos los elementos con la clase .foto
+            $("#ocultarFotos").click(function () {
+                $(".foto").hide(); // Oculta todos los elementos con la clase .foto
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Texto al Primer div</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Accede al primer <div> de la página y agrega el texto "Hola Mundo".-->
+</head>
+<body>
+
+    <!-- Varios divs -->
+    <div>Primer div (se le agregará el texto)</div>
+    <div>Segundo div</div>
+    <div>Tercer div</div>
+
+    <script>
+        $(document).ready(function () {
+            // Accedemos al primer <div> y le agregamos el texto "Hola Mundo"
+            $("div:first").text("Hola Mundo");
+        });
+    </script>
+
+</body>
+</html>

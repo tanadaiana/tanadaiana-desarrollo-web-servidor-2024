@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar el src de una Imagen</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Cambiar el src de una imagen con id #imagen a una nueva URL.
+-->
+</head>
+<body>
+
+    <!-- Imagen con el id 'imagen' -->
+    <img id="imagen" src="https://via.placeholder.com/150" alt="Imagen original">
+
+    <!-- Botón para cambiar la imagen -->
+    <button id="cambiarImagen">Cambiar Imagen</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se haga clic en el botón, cambiamos el src de la imagen
+            $("#cambiarImagen").click(function () {
+                $("#imagen").attr("src", "https://via.placeholder.com/300"); // Cambia el src de la imagen
+            });
+        });
+    </script>
+
+</body>
+</html>

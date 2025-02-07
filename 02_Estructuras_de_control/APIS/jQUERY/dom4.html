@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Título</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Selecciona el elemento con id #titulo y cambia su color a rojo.-->
+</head>
+<body>
+
+    <!-- Elemento con el id #titulo -->
+    <h1 id="titulo">Este es un título</h1>
+
+    <!-- Botón para cambiar el color del título -->
+    <button id="cambiarColor">Cambiar color a rojo</button>
+
+    <script>
+        $(document).ready(function () {
+            // Cuando se hace clic en el botón, cambiar el color del texto del elemento con id #titulo
+            $("#cambiarColor").click(function () {
+                $("#titulo").css("color", "red");
+            });
+        });
+    </script>
+
+</body>
+</html>

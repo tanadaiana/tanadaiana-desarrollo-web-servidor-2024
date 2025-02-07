@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Borde</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Obtén todos los elementos con la clase .carta y cambia su color de borde a verde-->
+</head>
+<body>
+
+    <!-- Elementos con la clase .carta -->
+    <div class="carta">Carta 1</div>
+    <div class="carta">Carta 2</div>
+    <div class="carta">Carta 3</div>
+
+    <script>
+        $(document).ready(function () {
+            // Seleccionamos todos los elementos con la clase .carta y cambiamos su borde a verde
+            $(".carta").css("border", "2px solid green");
+        });
+    </script>
+
+</body>
+</html>

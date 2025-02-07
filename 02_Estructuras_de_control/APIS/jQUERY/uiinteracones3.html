@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redimensionable Solo Horizontalmente</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--Haz que un elemento sea resizable solo horizontalmente-->
+    <style>
+        #resizable {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            border: 2px solid #ccc;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Div que será redimensionable solo horizontalmente -->
+    <div id="resizable">¡Redimensiona solo horizontalmente!</div>
+
+    <script>
+        $(document).ready(function () {
+            // Hacer el div redimensionable solo horizontalmente
+            $("#resizable").resizable({
+                handles: "e, w"  // Permite redimensionar solo en las direcciones este (derecha) y oeste (izquierda)
+            });
+        });
+    </script>
+
+</body>
+</html>

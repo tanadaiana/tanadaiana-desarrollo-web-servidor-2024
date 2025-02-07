@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Down Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <style>
+        .animado {
+            display: none;
+            width: 300px;
+            padding: 20px;
+            background-color: lightblue;
+            color: darkblue;
+            border: 1px solid blue;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #slideButton {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #slideButton:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+  <!--5-Haz que un <div> con clase .animado se deslice hacia abajo (slideDown) al hacer
+clic en un botón con id #slideButton-->
+<body>
+    <button id="slideButton">Deslizar hacia abajo</button>
+    <div class="animado">¡Este es el contenido que se desliza hacia abajo!</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#slideButton").on("click", function () {
+                $(".animado").slideDown("slow"); // Cambia "slow" por "fast" o un tiempo en milisegundos
+            });
+        });
+    </script>
+</body>
+</html>

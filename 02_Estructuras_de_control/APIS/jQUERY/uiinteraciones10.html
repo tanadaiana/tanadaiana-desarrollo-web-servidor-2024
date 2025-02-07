@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desplazamiento a Posición Específica</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--Haz que un elemento se desplace hacia una posición específica cuando se hace
+clic, usando el widget draggable.-->
+    <style>
+        /* Estilos del contenedor y el elemento */
+        .contenedor {
+            width: 600px;
+            height: 400px;
+            border: 2px solid #ccc;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .elemento {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            cursor: move;
+            border-radius: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Elemento que se moverá -->
+        <div class="elemento">Moverme</div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Hacer que el elemento sea arrastrable
+            $(".elemento").draggable();
+
+            // Mover el elemento a una posición específica cuando se haga clic
+            $(".elemento").click(function () {
+                $(this).animate({
+                    left: "400px", // Posición horizontal (400px desde la izquierda)
+                    top: "200px"   // Posición vertical (200px desde la parte superior)
+                }, 1000); // Tiempo en milisegundos para el movimiento (1 segundo)
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Arrastra y Coloca</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!---Usa el widget draggable y droppable para crear un juego de tipo "arrastra y
+coloca"-->
+    <style>
+        /* Estilos del contenedor y de las piezas */
+        .game-container {
+            width: 600px;
+            height: 300px;
+            border: 2px solid #ccc;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .droppable {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #ccc;
+            margin: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .draggable {
+            width: 80px;
+            height: 80px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 80px;
+            font-size: 20px;
+            cursor: move;
+            border-radius: 5px;
+            position: absolute;
+        }
+
+        .correct {
+            background-color: lightgreen !important;
+        }
+
+        .incorrect {
+            background-color: lightcoral !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Área de soltado -->
+        <div id="droppable1" class="droppable" style="left: 50px;">Lugar 1</div>
+        <div id="droppable2" class="droppable" style="left: 200px;">Lugar 2</div>
+        <div id="droppable3" class="droppable" style="left: 350px;">Lugar 3</div>
+
+        <!-- Elementos arrastrables -->
+        <div id="draggable1" class="draggable" style="top: 20px; left: 50px;">Pieza 1</div>
+        <div id="draggable2" class="draggable" style="top: 20px; left: 200px;">Pieza 2</div>
+        <div id="draggable3" class="draggable" style="top: 20px; left: 350px;">Pieza 3</div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Hacer las piezas arrastrables
+            $(".draggable").draggable({
+                revert: "invalid" // Si la pieza no se coloca en un área válida, vuelve a su posición original
+            });
+
+            // Hacer los lugares de soltado
+            $(".droppable").droppable({
+                accept: ".draggable", // Solo acepta las piezas arrastrables
+                drop: function (event, ui) {
+                    var piece = ui.helper; // La pieza que se está soltando
+                    var droppedOn = $(this); // El área donde se suelta
+
+                    // Comprobamos si la pieza se coloca en el lugar correcto
+                    var idLugar = droppedOn.attr('id');
+                    var idPieza = piece.attr('id');
+
+                    if (idLugar === "droppable" + idPieza.slice(-1)) {
+                        piece.addClass("correct"); // Colocado correctamente
+                        droppedOn.addClass("correct");
+                    } else {
+                        piece.addClass("incorrect"); // Colocado incorrectamente
+                        droppedOn.addClass("incorrect");
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
